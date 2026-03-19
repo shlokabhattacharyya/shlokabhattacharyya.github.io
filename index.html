@@ -1,71 +1,659 @@
 <!DOCTYPE html>
-<html lang="en" style="--accent: #b8398d;">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shloka Bhattacharyya</title>
-    <link rel="stylesheet" href="/assets/style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            letter-spacing: 0.5px;
+            line-height: 1.6;
+            color: #2d2d2d;
+            background: #f5f0e8;
+            min-height: 100vh;
+        }
+
+        header {
+            background: #8b5a3c;
+            color: #f5f0e8;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #e8d5c4;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem;
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .page-layout {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 6rem;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 8px 32px rgba(139, 90, 60, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .profile-card {
+            padding: 0;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #c97d5d 0%, #8b5a3c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: white;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 6px 20px rgba(139, 90, 60, 0.3);
+            border: 4px solid #f5f0e8;
+        }
+
+        .sidebar h2 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #8b5a3c;
+            font-weight: 700;
+            font-family: 'Times New Roman', serif;
+            letter-spacing: 0.5px;
+        }
+
+        .sidebar .subtitle {
+            color: #6b6b6b;
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+        }
+
+        .sidebar .location {
+            color: #6b6b6b;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            text-align: left;
+        }
+
+        .social-links a {
+            color: #2d2d2d;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            padding: 0.6rem;
+            border-radius: 8px;
+            background: transparent;
+            border: none;
+        }
+
+        .social-links a:hover {
+            background: rgba(139, 90, 60, 0.1);
+            transform: translateX(5px);
+            color: #8b5a3c;
+        }
+
+        .social-links .icon {
+            width: 20px;
+            font-size: 1.2rem;
+        }
+
+        .main-content {
+            padding: 0;
+        }
+
+        .main-content h1 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #8b5a3c;
+            font-weight: 700;
+            font-family: 'Times New Roman', serif;
+            letter-spacing: 0.5px;
+        }
+
+        .main-content p {
+            margin-bottom: 1.5rem;
+            color: #2d2d2d;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .main-content ul {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .main-content li {
+            margin-bottom: 0.8rem;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #2d2d2d;
+        }
+
+        .main-content a {
+            color: #c97d5d;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        .main-content a:hover {
+            color: #8b5a3c;
+            border-bottom: 2px solid #8b5a3c;
+        }
+
+        section {
+            padding: 0;
+            margin-bottom: 2rem;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #8b5a3c;
+            font-weight: 700;
+            font-family: 'Times New Roman', serif;
+            letter-spacing: 0.5px;
+        }
+
+        .content-area {
+            line-height: 1.8;
+        }
+
+        .content-area p {
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            color: #2d2d2d;
+        }
+
+        .content-area h3 {
+            color: #8b5a3c;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            font-family: 'Times New Roman', serif;
+            letter-spacing: 0.5px;
+        }
+
+        .cv-item, .project-item, .writing-item {
+            margin-bottom: 2rem;
+        }
+
+        .cv-item h3, .project-item h3, .writing-item h3 {
+            margin-bottom: 0.3rem;
+        }
+
+        .cv-item h3 a, .project-item h3 a, .writing-item h3 a {
+            color: #8b5a3c;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Times New Roman', serif;
+            letter-spacing: 0.5px;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .cv-item h3 a:hover, .project-item h3 a:hover, .writing-item h3 a:hover {
+            color: #c97d5d;
+        }
+
+        .cv-item .date, .project-item .date, .writing-item .date {
+            color: #6b6b6b;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .cv-item .description,.project-item .description, .writing-item .description {
+            color: #6b6b6b;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 968px) {
+            .page-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+            }
+
+            .main-content, section {
+                padding: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <nav>
             <ul class="nav-links">
-                <li><a href="/">home</a></li>
-                <li><a href="/blog">blog</a></li>
-                <li><a href="/projects">projects</a></li>
-                <li><a href="/writing">writing</a></li>
-                <li><a href="/about-me">about me</a></li>
+                <li><a href="#" data-page="home" class="active">Home</a></li>
+                <li><a href="#" data-page="cv">CV</a></li>
+                <li><a href="#" data-page="projects">Projects</a></li>
+                <li><a href="#" data-page="writing">Writing</a></li>
+                <li><a href="#" data-page="about">About Me</a></li>
             </ul>
-            <div style="display:flex;align-items:center;gap:1rem;">
-                <button class="theme-toggle" aria-label="Toggle dark mode">
-                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-                </button>
-                <button class="hamburger" aria-label="Open menu">
-                    <span></span><span></span><span></span>
-                </button>
-            </div>
         </nav>
     </header>
-    <div class="mobile-menu">
-        <button class="mobile-menu-close" aria-label="Close menu">✕</button>
-        <ul>
-            <li><a href="/">home</a></li>
-            <li><a href="/blog">blog</a></li>
-            <li><a href="/projects">projects</a></li>
-            <li><a href="/writing">writing</a></li>
-            <li><a href="/about-me">about me</a></li>
-        </ul>
-    </div>
 
     <div class="container">
-        <div class="home-content">
-            <div class="home-profile-img">
-                <img src="/images/profile-picture.jpg" alt="Shloka Bhattacharyya">
+        <!-- HOME PAGE -->
+        <div id="home" class="page active">
+            <div class="page-layout">
+                <div class="main-content">
+                    <h1>Welcome to Shloka's website!</h1>
+                    
+                    <p>I am currently an undergraduate sophomore at Wesleyan majoring in mathematics, economics, and computer science. I am particularly interested in theoretical mathematics, AI/ML, deep learning, venture capital, risk management, and fintech.</p>
+                    
+                    <p>Over winter break, I have been a student in the prestigious Tuck Business Bridge Program, where I am learning business fundamentals across various fields, including finance, accounting, strategy, economics, and VC/PE. I am also currently a Venture Intern at Trivium Venture Network. </p>
+                </div>
+
+                <div class="sidebar">
+                    <div class="profile-card">
+                        <div class="profile-img">
+                            <img src="./images/profile-picture.jpg" alt="Profile Picture" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                        </div>
+                        <h2>Shloka Bhattacharyya</h2>
+                        <p class="subtitle">Undergrad Student at Wesleyan</p>
+                        <p class="location">📍 Malvern, PA</p>
+                        
+                        <div class="social-links">
+                            <a href="mailto:sbhattachary@wesleyan.edu"><span class="icon">✉️</span> Email</a>
+                            <a href="https://www.linkedin.com/in/shloka-bhattacharyya/" target="_blank" rel="noopener noreferrer"><span class="icon">💼</span> LinkedIn</a>
+                            <a href="https://github.com/shlokabhattacharyya" target="_blank" rel="noopener noreferrer"><span class="icon">💻</span> Github</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <h1>welcome!</h1>
-            
-            <p>Hi, I'm Shloka! I am currently an undergraduate sophomore at Wesleyan majoring in mathematics, economics, and computer science. I am particularly interested in theoretical mathematics, AI/ML and deep learning, software development, venture capital, and fintech.</p>
-            
-            <p>This semester, I am taking courses in quantum computing, abstract algebra, microeconomics, macroeconomics, money &amp; banking, and applied linear algebra. Outside of these, I'm involved in a variety of things on campus, including but not limited to machine learning research, being a teaching assistant, The Wesleyan Argus, Wesleyan Institute for Policy, CodeWes, WesEngineering, and TEDxWesleyanU.</p>
-            
-            <p>This website contains a lot of different sections, so feel free to have a look around!</p>
         </div>
-        <div class="social-footer">
-            <a href="mailto:sbhattachary@wesleyan.edu">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
-                Email
-            </a>
-            <a href="https://www.linkedin.com/in/shloka-bhattacharyya/" target="_blank" rel="noopener noreferrer">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                LinkedIn
-            </a>
-            <a href="https://github.com/shlokabhattacharyya" target="_blank" rel="noopener noreferrer">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                Github
-            </a>
+
+       <!-- CV PAGE -->
+       <div id="cv" class="page">
+        <div class="page-layout">
+            <section>
+                <h2>Education</h2>
+                <div class="content-area">
+                    <div class="cv-item">
+                        <h3>Wesleyan University, BA in Mathematics, Economics, and Computer Science</h3>
+                        <p class="date">Expected 2028</p>
+                    </div>
+
+                    <div class="cv-item">
+                        <h3>Tuck School of Business at Dartmouth, Tuck Business Bridge Program</h3>
+                        <p class="date">Jan 2026 - Jan 2026</p>
+                    </div>
+
+                    <div class="cv-item">
+                        <h3>Great Valley High School, Diploma</h3>
+                        <p class="date">Sept 2020 - May 2024</p>
+                    </div>
+
+                <h2>Work Experience</h2>
+                <div class="content-area">
+                    <div class="cv-item">
+                        <h3>Venture Scout Intern, Trivium Venture Network</h3>
+                        <p class="date">Dec 2025 - Present</p>
+                        <p class="description">
+                            <ul>
+                                <li>Sourcing and evaluating early-stage startups within the NESCAC-affiliated ecosystem, building and maintaining relationships with founders and investors, and conducting market research and opportunity assessments, supporting Trivium's early growth by 30%</li>
+                            </ul>
+                        </p>
+                    </div>
+
+                    <div class="cv-item">
+                        <h3>Course Assistant, Wesleyan University Math Department</h3>
+                        <p class="date">Sept 2025 - Dec 2025</p>
+                        <p class="description">
+                            <ul>
+                                <li>Ensure student success by leading weekly help sessions and providing one-on-one guidance to 35 students in Calculus I</li>
+                                <li>Assist in evaluating problem sets and exams with attention to accuracy and timely feedback</li>
+                            </ul>
+                        </p>                       
+                    </div>
+
+                    <div class="cv-item">
+                        <h3>Analyst Intern, Elevate Insights, LLC</h3>
+                        <p class="date">Aug 2025 - Sept 2025</p>
+                        <p class="description">
+                            <ul>
+                                <li>Supported growth strategy for various portfolio companies by assisting with conducting in-depth consumer research, performing market analysis, and delivering competitive benchmarking to inform investment decisions and strategic planning-</li>
+                                <li>Collaborated with cross-functional stakeholders to prioritize initiatives for high-growth customer segments</li>
+                            </ul>
+                        </p>                    
+                    </div>
+                
+                <h3>Research</h3>
+                <div class="content-area">
+                    <div class="cv-item">
+                        <h3>Economic Researcher, Wesleyan Institute for Policy</h3>
+                        <p class="date">Sept 2025 - Present</p>
+                        <p class="description">
+                            <ul>
+                                <li>Conducting policy research within the economic core on projects focusing on homelessness and nonprofit infrastructure, developing evidence-based insights and actionable recommendations that benefit the greater Middletown community</li>
+                            </ul>
+                        </p>                    
+                    </div>
+
+                    <div class="cv-item">
+                        <h3>Research Fellow, Wesleyan Astrophysics Department</h3>
+                        <p class="date">June 2025 - July 2025</p>
+                        <p class="description">
+                            <ul>
+                                <li>Advisor: Dr. Edward Moran</li>
+                                <li>Received a $5,000 grant to conduct quantitative analyses of spectroscopic data from galaxy NGC5958 and NGC4395, leveraging Python, Excel, and IRAF to build statistical models, run simulations, and extract insights</li>
+                                <li>Discovered evidence of speculative supermassive black hole in NGC5958 and presented findings at Keck Northeast Astronomy Consortium (KNAC) conference and Wesleyan's College of Integrative Sciences Summer Symposium</li>
+                            </ul>
+                        </p>                    
+                    </div>
+                    
+                <h3>Leadership & Community Involvement</h3>
+                <div class="content-area"></div>
+
+                    <!-- template for future experiences -->
+                    <div class="cv-item" style="display: none;">
+                        <h3>Experience Title, Company</h3>
+                        <p class="date">Date</p>
+                        <p class="description">
+                            <ul>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </p>                    
+                    </div>
+                </div>
+            </section>
+
+            <div class="sidebar">
+                <div class="profile-card">
+                    <div class="profile-img">
+                        <img src="./images/profile-picture.jpg" alt="Profile Picture" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                    </div>
+                    <h2>Shloka Bhattacharyya</h2>
+                    <p class="subtitle">Undergrad Student at Wesleyan</p>
+                    <p class="location">📍 Malvern, PA</p>
+                    
+                    <div class="social-links">
+                        <a href="mailto:sbhattachary@wesleyan.edu"><span class="icon">✉️</span> Email</a>
+                        <a href="https://www.linkedin.com/in/shloka-bhattacharyya/" target="_blank" rel="noopener noreferrer"><span class="icon">💼</span> LinkedIn</a>
+                        <a href="https://github.com/shlokabhattacharyya" target="_blank" rel="noopener noreferrer"><span class="icon">💻</span> Github</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <script src="/assets/script.js"></script>
+
+        <!-- PROJECTS PAGE -->
+        <div id="projects" class="page">
+            <div class="page-layout">
+                <section>
+                    <h2>Projects</h2>
+                    <div class="content-area">
+                        <!-- template for future projects -->
+                        <div class="project-item" style="display: none;">
+                            <h3><a href="#">Project Title</a></h3>
+                            <p class="date">Date</p>
+                            <p class="description">Project description goes here.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="sidebar">
+                    <div class="profile-card">
+                        <div class="profile-img">
+                            <img src="./images/profile-picture.jpg" alt="Profile Picture" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                        </div>
+                        <h2>Shloka Bhattacharyya</h2>
+                        <p class="subtitle">Undergrad Student at Wesleyan</p>
+                        <p class="location">📍 Malvern, PA</p>
+                        
+                        <div class="social-links">
+                            <a href="mailto:sbhattachary@wesleyan.edu"><span class="icon">✉️</span> Email</a>
+                            <a href="https://www.linkedin.com/in/shloka-bhattacharyya/" target="_blank" rel="noopener noreferrer"><span class="icon">💼</span> LinkedIn</a>
+                            <a href="https://github.com/shlokabhattacharyya" target="_blank" rel="noopener noreferrer"><span class="icon">💻</span> Github</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WRITING PAGE -->
+        <div id="writing" class="page">
+            <div class="page-layout">
+                <section>
+                    <h2>Writing</h2>
+                    <div class="content-area">
+                        <div class="writing-item">
+                            <h3><a href="https://www.wesleyanbusinessreview.com/issue-xi-finance-economics/a-new-era-of-power-demand-67kns-rawec">The Financialization of Everything</a></h3>
+                            <p class="date">December 21, 2025</p>
+                            <p class="description">Published in Wesleyan Business Review</p>
+                        </div>
+
+                        <div class="writing-item">
+                            <h3><a href="https://www.wesleyanbusinessreview.com/issue-xi-technology/a6oyjbvojbt7zab7dujv61vbhnlbwm-26tm5">The Future of the Corporate World in the Age of Artificial Intelligence</a></h3>
+                            <p class="date">December 21, 2025</p>
+                            <p class="description">Published in Wesleyan Business Review</p>
+                        </div>
+
+                        <div class="writing-item">
+                            <h3><a href="https://wesleyanargus.com/2025/11/21/we-won-now-what/">We Won! Now What?</a></h3>
+                            <p class="date">November 21, 2025</p>
+                            <p class="description">Published in the Wesleyan Argus.</p>
+                        </div>
+
+                        <div class="writing-item">
+                            <h3><a href="https://wesleyanargus.com/2025/11/14/nobody-wants-to-listen-anymore/">Nobody Wants to Listen Anymore!</a></h3>
+                            <p class="date">November 14, 2025</p>
+                            <p class="description">Published in the Wesleyan Argus.</p>
+                        </div>
+
+                        <div class="writing-item">
+                            <h3><a href="https://wesleyanargus.com/2025/10/28/dear-vivek-ramaswamy-conservatives-will-never-fully-accept-you/">Dear Vivek Ramaswamy, Conservatives Will Never Fully Accept You</a></h3>
+                            <p class="date">October 28, 2025</p>
+                            <p class="description">Published in the Wesleyan Argus.</p>
+                        </div>
+
+                        <div class="writing-item">
+                            <h3><a href="https://wesleyanargus.com/2025/10/10/the-rise-of-anti-intellectualism-in-american-society/">The Rise of Anti-Intellectualism in American Society</a></h3>
+                            <p class="date">October 10, 2025</p>
+                            <p class="description">Published in the Wesleyan Argus.</p>
+                        </div>
+
+                        <div class="writing-item">
+                            <h3><a href="https://wesleyanargus.com/2025/09/30/in-attempting-to-silence-kimmel-trump-grinds-away-at-pillars-of-free-expression-political-speech/">The Cancellation of Jimmy Kimmel</a></h3>
+                            <p class="date">September 30, 2025</p>
+                            <p class="description">Published in the Wesleyan Argus.</p>
+                        </div>
+
+                        <!-- template for future writing -->
+                        <div class="writing-item" style="display: none;">
+                            <h3><a href="#">Article Title</a></h3>
+                            <p class="date">Date</p>
+                            <p class="description">Article excerpt or description goes here.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="sidebar">
+                    <div class="profile-card">
+                        <div class="profile-img">
+                            <img src="./images/profile-picture.jpg" alt="Profile Picture" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                        </div>
+                        <h2>Shloka Bhattacharyya</h2>
+                        <p class="subtitle">Undergrad Student at Wesleyan</p>
+                        <p class="location">📍 Malvern, PA</p>
+                        
+                        <div class="social-links">
+                            <a href="mailto:sbhattachary@wesleyan.edu"><span class="icon">✉️</span> Email</a>
+                            <a href="https://www.linkedin.com/in/shloka-bhattacharyya/" target="_blank" rel="noopener noreferrer"><span class="icon">💼</span> LinkedIn</a>
+                            <a href="https://github.com/shlokabhattacharyya" target="_blank" rel="noopener noreferrer"><span class="icon">💻</span> Github</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ABOUT ME PAGE -->
+        <div id="about" class="page">
+            <div class="page-layout">
+                <section>
+                    <h2>About Me</h2>
+                    <div class="content-area">
+                        <p>Beyond my academic and professional interests, I am also a human! I would like to think I am a multifaceted person, so my interests are rather vast.</p>
+                    
+                        <br>
+
+                        <p>In my free time, I enjoy playing violin (circa. 2011), piano (circa. 2018), and guitar (circa. 2020). I also have incredibly minor training in the marimba. As of today, my favorite instrument is piano, but check back later because it changes occasionally. </p>
+                        
+                        <p>I enjoy outdoor/physical activities as well. Aside from going to the gym, I like playing tennis, running, hiking, swimming, and skateboarding. I'm also great at pickleball because it's a fake sport.</p>
+                        
+                        <p>I also really love learning. Presently, I am working on teaching myself about front end (here's proof!), various ML and deep learning concepts, options theory, advanced probability, and philosophy.</p>
+
+                        <br>
+
+                        <p>Some of my more miscellaneaous interests are reading, Kalshi, LEGOs, Minecraft, crosswords, solving Rubik's cubes, <a href="https://docs.google.com/spreadsheets/d/1BDApmM0c5Xw3ADpuFsTZCfdJRQxTCnZobOJJQRDVUtg/edit?usp=sharing" target="_blank" rel="noopener noreferrer" style="color: #2d74a7">U.S. Quarter collecting</a> (feel free to help me out!), Mary Oliver's poetry, Greek yogurt. </p>
+                    </div>
+                </section>
+
+                <div class="sidebar">
+                    <div class="profile-card">
+                        <div class="profile-img">
+                            <img src="./images/profile-picture.jpg" alt="Profile Picture" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                        </div>
+                        <h2>Shloka Bhattacharyya</h2>
+                        <p class="subtitle">Undergrad Student at Wesleyan</p>
+                        <p class="location">📍 Malvern, PA</p>
+                        
+                        <div class="social-links">
+                            <a href="mailto:sbhattachary@wesleyan.edu"><span class="icon">✉️</span> Email</a>
+                            <a href="https://www.linkedin.com/in/shloka-bhattacharyya/" target="_blank" rel="noopener noreferrer"><span class="icon">💼</span> LinkedIn</a>
+                            <a href="https://github.com/shlokabhattacharyya" target="_blank" rel="noopener noreferrer"><span class="icon">💻</span> Github</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // page navigation
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const pages = document.querySelectorAll('.page');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // remove active class from all links and pages
+                navLinks.forEach(l => l.classList.remove('active'));
+                pages.forEach(p => p.classList.remove('active'));
+                
+                // add active class to clicked link
+                link.classList.add('active');
+                
+                // show corresponding page
+                const pageId = link.getAttribute('data-page');
+                document.getElementById(pageId).classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html>
