@@ -9,7 +9,7 @@
     --text: #2d2d2d;
     --text-muted: #6b6b6b;
     --border: #e0ddd6;
-    --header-bg: rgba(245, 240, 232, 0.88);
+    --header-bg: #f5f0e8;
     --nav-border: #e0ddd6;
     --accent: #2d2d2d;
 }
@@ -19,7 +19,7 @@
     --text: #e8e8e8;
     --text-muted: #888;
     --border: #2a2a2a;
-    --header-bg: rgba(0, 0, 0, 0.88);
+    --header-bg: #101629;
     --nav-border: #2a2a2a;
     --accent: #e8e8e8;
 }
