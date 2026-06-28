@@ -271,15 +271,15 @@ section {
     margin-bottom: 0.3rem;
 }
 
-.cv-item, .project-item, .writing-item {
+.cv-item, .project-item, .writing-item, .blog-item {
     margin-bottom: 2rem;
 }
 
-.cv-item h3, .project-item h3, .writing-item h3 {
+.cv-item h3, .project-item h3, .writing-item h3, .blog-item h3 {
     margin-bottom: 0.3rem;
 }
 
-.cv-item h3 a, .project-item h3 a, .writing-item h3 a {
+.cv-item h3 a, .project-item h3 a, .writing-item h3 a, .blog-item h3 a {
     color: var(--accent);
     text-decoration: underline;
     text-underline-offset: 3px;
@@ -288,7 +288,7 @@ section {
     transition: opacity 0.2s ease;
 }
 
-.cv-item h3 a:hover, .project-item h3 a:hover, .writing-item h3 a:hover {
+.cv-item h3 a:hover, .project-item h3 a:hover, .writing-item h3 a:hover, .blog-item h3 a:hover {
     color: var(--accent);
     opacity: 0.65;
 }
