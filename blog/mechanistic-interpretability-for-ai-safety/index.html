@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" style="--accent: #e47545;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POST TITLE | Shloka Bhattacharyya</title>
+    <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/">home</a></li>
+                <li><a href="/blog" class="active">blog</a></li>
+                <li><a href="/projects">projects</a></li>
+                <li><a href="/writing">writing</a></li>
+                <li><a href="/about-me">about me</a></li>
+            </ul>
+            <div style="display:flex;align-items:center;gap:1rem;">
+                <button class="theme-toggle" aria-label="Toggle dark mode">
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
+                <button class="hamburger" aria-label="Open menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <div class="mobile-menu">
+        <button class="mobile-menu-close" aria-label="Close menu">✕</button>
+        <ul>
+            <li><a href="/">home</a></li>
+            <li><a href="/blog" class="active">blog</a></li>
+            <li><a href="/projects">projects</a></li>
+            <li><a href="/writing">writing</a></li>
+            <li><a href="/about-me">about me</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <article>
+            <a href="/blog" class="post-back">← back to blog</a>
+
+            <header class="post-header">
+                <h2 class="post-title">mechanistic interpretability for ai safety</h2>
+                <div class="post-meta">
+                    <span class="post-tag">tag</span>
+                    <span>june 24, 2026</span>
+                    <span class="dot">·</span>
+                    <span>4 min read</span>
+                </div>
+            </header>
+
+            <div class="post-body">
+                <!-- Write the post here. Available elements, all themed:
+                     <p>…</p>  paragraphs
+                     <h3>…</h3>  section subheadings
+                     <ul><li>…</li></ul>  lists
+                     <blockquote>…</blockquote>  pull quotes
+                     <code>…</code>  inline code
+                     <pre><code>…</code></pre>  code blocks
+                     <a href="…">…</a>  links (accent colored)
+                -->
+                <p>theoretically, neural networks work in a very standard way: they take in some inputs, assign weights and biases, and pass this information through layers of interconnected artificial neurons to produce an output. while this process is mathematically well-defined, modern artificial intelligence (ai) models contain billions of parameters, making it incredibly difficult to determine exactly how they arrive at a particular decision.</p>
+            
+                <p>what this means, however, is that the internal structure of most machine learning algorithms essentially operate as black boxes. in other words, we can't know what ai models are “thinking”. we control the data going in and we can observe the outputs, but what happens across the dozens or hundreds of intervening layers is largely hidden from view. furthermore, because these processes exist primarily as computational procedures, there is no intuitive way for humans to understand it even if we were able to break it down.</p>
+
+                <p>as ai progresses rapidly, it is seemingly becoming inevitable that we will cede more control to these models and begin to understand less of the internal workings. it is not hard to imagine a world where most decisions, even high-stakes ones in domains like law, healthcare, and finance, have been handed to automated systems. this lack of transparency creates a major obstacle for ai safety. if we cannot explain a model's reasoning, how can we be confident that it will behave as intended in situations it has never encountered before? worse, evaluating a model only by its outputs makes it hard to catch failure modes like deception (feigning alignment while pursuing other goals), sycophancy (telling users what they want to hear), or reward-hacking (cutting corners to game its objective). s these models take on more responsibility, trusting them on outward behavior alone becomes an increasingly risky bet.</p>
+
+                <p>mechanistic interpretability is an emerging research effort trying to close this gap. the field attempts to reverse-engineer what happens inside and translates the tangle of learned weights and biases into mechanisms a human can actually follow. the end goal is essentially to work backwards from raw computation to recover the logic the model taught itself.</p>
+
+                <p>in practice, researchers approach this similar to neuroscientists studying a brain, except instead of biological neurons, they probe the artificial ones and look for patterns in when and why each fires. there are two main ideas central to this work: features and circuits. a feature is a fundamental piece of information that the network has learned to recognize. a circuit is a computational path by which simpler features combine across layers into more complex ones. the deeper the network, the more times this composition repeats, and the more sophisticated the final representation becomes.</p>
+
+                <p>however, the hard part is that neurons rarely map directly onto single concepts. a neuron that lights up for one kind of object might really be responding to some underlying texture or shape the examples happen to share, so pinning down even one feature can take a lot of repeated experimentation. more simply put, a single neuron often represents several unrelated features at once (a phenomenon referred to as polysemanticity). it essentially operates via superposition: networks cram in more features than they have neurons, packing multiple shared components to store information more efficiently. in the context of safety particularly, this can be a real problem because if a harmful feature is entangled with an innocuous one, it becomes much harder to find and isolate.</p>
+
+                <p>a promising response is an architecture called a sparse autoencoder, which is trained to pull these tangled neurons apart into more immaculate, single-meaning (monosemantic) features. it does this by using a sparsity constraint: it keeps many more neurons available but is forced to keep most of them inactive at any moment, which pushes each one to specialize in a distinct concept. recent empirical work has further scaled this approach to large production language models and extracted millions of interpretable features. researchers have even shown that these features can be individually strengthened or weakened to deliberately shift the model's behavior in a targeted way. despite the work being far from finished, it shows that opening the black box at scale is at least possible.</p>
+
+                <p>still, untangling features is only part of the picture. we now must take the next step and confirm what each one actually does. watching which neurons switch on for which inputs only reveals correlations, and a neuron that happens to fire alongside a behavior isn't necessarily causing it. so, researchers also intervene: they alter or silence a specific internal signal and check whether the model's output changes in response. the back-and-forth between observing and intervening is how the field moves from “this neuron seems to be related to X” to “this neuron is part of how the model does X.”</p>
+
+                <p>none of this is close to solved, though. the techniques that work well on small models are hard to scale to larger ones. there are also deeper worries of a model settling on internal representations that don't correspond to any concept a human would recognize. a hopeful counterweight is that separately trained models often seem to converge on similar internal structures, which suggests that discoveries into the internal workings of one system may carry over to others rather than having to be rebuilt from scratch every time.</p>
+
+                <p>there are reasons for caution on the other side too. the same understanding that helps us monitor a model could also be used to make it more capable, or be misused once its internal levers are exposed, thereby making interpretability dual-use. there' is also a subtler risk of false confidence, where a handful of orderly results convince us we understand a system better than we really do. even further out, a sufficiently capable model under enough optimization pressure might even learn to obscure its own reasoning from the very tools meant to inspect it. for all of these reasons, it is important to consider interpretability as an essential tool among many, rather than a single resolution to ai safety.</p>
+
+                <p>all of this matters because it gives us a mechanism to help us comprehend, trust, and ultimately keep control over systems that are growing more capable than the people who build them. as models take on more influence, the cost of not understanding them rises with every responsibility we hand over.</p>
+            
+            </div>
+        </article>
+
+        <div class="social-footer">
+            <a href="mailto:sbhattachary@wesleyan.edu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+                Email
+            </a>
+            <a href="https://www.linkedin.com/in/shloka-bhattacharyya/" target="_blank" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                LinkedIn
+            </a>
+            <a href="https://github.com/shlokabhattacharyya" target="_blank" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                Github
+            </a>
+        </div>
+    </div>
+
+    <script src="/assets/script.js"></script>
+</body>
+</html>

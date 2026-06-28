@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>blog | shloka bhattacharyya</title>
+    <title>POST TITLE | Shloka Bhattacharyya</title>
     <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
@@ -11,7 +11,7 @@
         <nav>
             <ul class="nav-links">
                 <li><a href="/">home</a></li>
-                <li><a href="/blog">blog</a></li>
+                <li><a href="/blog" class="active">blog</a></li>
                 <li><a href="/projects">projects</a></li>
                 <li><a href="/writing">writing</a></li>
                 <li><a href="/about-me">about me</a></li>
@@ -31,30 +31,41 @@
         <button class="mobile-menu-close" aria-label="Close menu">✕</button>
         <ul>
             <li><a href="/">home</a></li>
-            <li><a href="/blog">blog</a></li>
+            <li><a href="/blog" class="active">blog</a></li>
             <li><a href="/projects">projects</a></li>
             <li><a href="/writing">writing</a></li>
             <li><a href="/about-me">about me</a></li>
         </ul>
     </div>
+
     <div class="container">
-        <section>
-            <h2>blog</h2>
-            <div class="content-area">
-                <!-- <p>I made a <a href="https://shloka444.substack.com" > Substack </a> lol</p> -->
+        <article>
+            <a href="/blog" class="post-back">← back to blog</a>
 
-                <div class="blog-item" style="display:none;">
-                    <h3><a href="/mechanistic-interpretability-for-ai-safety">mechanistic interpretability for ai safety</a></h3>
-                    <p class="description">how we can "read ai's mind."</p>
+            <header class="post-header">
+                <h2 class="post-title">POST TITLE</h2>
+                <div class="post-meta">
+                    <span class="post-tag">tag</span>
+                    <span>Month DD, YYYY</span>
+                    <span class="dot">·</span>
+                    <span>N min read</span>
                 </div>
+            </header>
 
-                <div class="blog-item" style="display:none;">
-                    <h3><a href="/template">Blog Post Title</a></h3>
-                    <p class="description">Blog post description goes here.</p>
-                </div>
-
+            <div class="post-body">
+                <!-- Write the post here. Available elements, all themed:
+                     <p>…</p>  paragraphs
+                     <h3>…</h3>  section subheadings
+                     <ul><li>…</li></ul>  lists
+                     <blockquote>…</blockquote>  pull quotes
+                     <code>…</code>  inline code
+                     <pre><code>…</code></pre>  code blocks
+                     <a href="…">…</a>  links (accent colored)
+                -->
+                <p>First paragraph goes here.</p>
             </div>
-        </section>
+        </article>
+
         <div class="social-footer">
             <a href="mailto:sbhattachary@wesleyan.edu">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
@@ -70,6 +81,7 @@
             </a>
         </div>
     </div>
+
     <script src="/assets/script.js"></script>
 </body>
 </html>
