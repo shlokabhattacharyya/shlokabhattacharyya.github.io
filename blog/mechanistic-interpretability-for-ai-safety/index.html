@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mechanistic interpretability for ai safety | shloka bhattacharyya</title>
+    <title>mechanistic interpretability for AI safety | shloka bhattacharyya</title>
     <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
@@ -43,12 +43,14 @@
             <a href="/blog" class="post-back">← back to blog</a>
 
             <header class="post-header">
-                <h2 class="post-title">mechanistic interpretability for ai safety</h2>
+                <h2 class="post-title">mechanistic interpretability for AI safety</h2>
                 <div class="post-meta">
                     <span class="post-tag">ai</span>
                     <span>june 24, 2026</span>
                     <span class="dot">·</span>
-                    <span>4 min read</span>
+                    <span>6 min read</span>
+                    <span class="dot">·</span>
+                    <span><a href="https://shloka444.substack.com/p/mechanistic-interpretability-for-ai-safety">link</span>
                 </div>
             </header>
 
@@ -62,11 +64,11 @@
                      <pre><code>…</code></pre>  code blocks
                      <a href="…">…</a>  links (accent colored)
                 -->
-                <p>theoretically, neural networks work in a very standard way: they take in some inputs, assign weights and biases, and pass this information through layers of interconnected artificial neurons to produce an output. while this process is mathematically well-defined, modern artificial intelligence (ai) models contain billions of parameters, making it incredibly difficult to determine exactly how they arrive at a particular decision.</p>
+                <p>theoretically, neural networks work in a very standard way: they take in some inputs, assign weights and biases, and pass this information through layers of interconnected artificial neurons to produce an output. while this process is mathematically well-defined, modern artificial intelligence (AI) models contain billions of parameters, making it incredibly difficult to determine exactly how they arrive at a particular decision.</p>
             
-                <p>what this means, however, is that the internal structure of most machine learning algorithms essentially operate as black boxes. in other words, we can't know what ai models are “thinking”. we control the data going in and we can observe the outputs, but what happens across the dozens or hundreds of intervening layers is largely hidden from view. furthermore, because these processes exist primarily as computational procedures, there is no intuitive way for humans to understand it even if we were able to break it down.</p>
+                <p>what this means, however, is that the internal structure of most machine learning algorithms essentially operate as black boxes. in other words, we can't know what AI models are “thinking”. we control the data going in and we can observe the outputs, but what happens across the dozens or hundreds of intervening layers is largely hidden from view. furthermore, because these processes exist primarily as computational procedures, there is no intuitive way for humans to understand it even if we were able to break it down.</p>
 
-                <p>as ai progresses rapidly, it is seemingly becoming inevitable that we will cede more control to these models and begin to understand less of the internal workings. it is not hard to imagine a world where most decisions, even high-stakes ones in domains like law, healthcare, and finance, have been handed to automated systems. this lack of transparency creates a major obstacle for ai safety. if we cannot explain a model's reasoning, how can we be confident that it will behave as intended in situations it has never encountered before? worse, evaluating a model only by its outputs makes it hard to catch failure modes like deception (feigning alignment while pursuing other goals), sycophancy (telling users what they want to hear), or reward-hacking (cutting corners to game its objective). s these models take on more responsibility, trusting them on outward behavior alone becomes an increasingly risky bet.</p>
+                <p>as AI progresses rapidly, it is seemingly becoming inevitable that we will cede more control to these models and begin to understand less of the internal workings. it is not hard to imagine a world where most decisions, even high-stakes ones in domains like law, healthcare, and finance, have been handed to automated systems. this lack of transparency creates a major obstacle for AI safety. if we cannot explain a model's reasoning, how can we be confident that it will behave as intended in situations it has never encountered before? worse, evaluating a model only by its outputs makes it hard to catch failure modes like deception (feigning alignment while pursuing other goals), sycophancy (telling users what they want to hear), or reward-hacking (cutting corners to game its objective). s these models take on more responsibility, trusting them on outward behavior alone becomes an increasingly risky bet.</p>
 
                 <p>mechanistic interpretability is an emerging research effort trying to close this gap. the field attempts to reverse-engineer what happens inside and translates the tangle of learned weights and biases into mechanisms a human can actually follow. the end goal is essentially to work backwards from raw computation to recover the logic the model taught itself.</p>
 
@@ -80,7 +82,7 @@
 
                 <p>none of this is close to solved, though. the techniques that work well on small models are hard to scale to larger ones. there are also deeper worries of a model settling on internal representations that don't correspond to any concept a human would recognize. a hopeful counterweight is that separately trained models often seem to converge on similar internal structures, which suggests that discoveries into the internal workings of one system may carry over to others rather than having to be rebuilt from scratch every time.</p>
 
-                <p>there are reasons for caution on the other side too. the same understanding that helps us monitor a model could also be used to make it more capable, or be misused once its internal levers are exposed, thereby making interpretability dual-use. there' is also a subtler risk of false confidence, where a handful of orderly results convince us we understand a system better than we really do. even further out, a sufficiently capable model under enough optimization pressure might even learn to obscure its own reasoning from the very tools meant to inspect it. for all of these reasons, it is important to consider interpretability as an essential tool among many, rather than a single resolution to ai safety.</p>
+                <p>there are reasons for caution on the other side too. the same understanding that helps us monitor a model could also be used to make it more capable, or be misused once its internal levers are exposed, thereby making interpretability dual-use. there' is also a subtler risk of false confidence, where a handful of orderly results convince us we understand a system better than we really do. even further out, a sufficiently capable model under enough optimization pressure might even learn to obscure its own reasoning from the very tools meant to inspect it. for all of these reasons, it is important to consider interpretability as an essential tool among many, rather than a single resolution to AI safety.</p>
 
                 <p>all of this matters because it gives us a mechanism to help us comprehend, trust, and ultimately keep control over systems that are growing more capable than the people who build them. as models take on more influence, the cost of not understanding them rises with every responsibility we hand over.</p>
             
