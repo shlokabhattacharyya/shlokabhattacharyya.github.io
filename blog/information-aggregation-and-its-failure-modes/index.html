@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" style="--accent: #e47545;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POST TITLE | Shloka Bhattacharyya</title>
+    <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/">home</a></li>
+                <li><a href="/blog" class="active">blog</a></li>
+                <li><a href="/projects">projects</a></li>
+                <li><a href="/writing">writing</a></li>
+                <li><a href="/about-me">about me</a></li>
+            </ul>
+            <div style="display:flex;align-items:center;gap:1rem;">
+                <button class="theme-toggle" aria-label="Toggle dark mode">
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
+                <button class="hamburger" aria-label="Open menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <div class="mobile-menu">
+        <button class="mobile-menu-close" aria-label="Close menu">✕</button>
+        <ul>
+            <li><a href="/">home</a></li>
+            <li><a href="/blog" class="active">blog</a></li>
+            <li><a href="/projects">projects</a></li>
+            <li><a href="/writing">writing</a></li>
+            <li><a href="/about-me">about me</a></li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <article>
+            <a href="/blog" class="post-back">← back to blog</a>
+
+            <header class="post-header">
+                <h2 class="post-title">POST TITLE</h2>
+                <div class="post-meta">
+                    <span class="post-tag">tag</span>
+                    <span>Month DD, YYYY</span>
+                    <span class="dot">·</span>
+                    <span>N min read</span>
+                </div>
+            </header>
+
+            <div class="post-body">
+                <!-- Write the post here. Available elements, all themed:
+                     <p>…</p>  paragraphs
+                     <h3>…</h3>  section subheadings
+                     <ul><li>…</li></ul>  lists
+                     <blockquote>…</blockquote>  pull quotes
+                     <code>…</code>  inline code
+                     <pre><code>…</code></pre>  code blocks
+                     <a href="…">…</a>  links (accent colored)
+                -->
+                <p>the standard pitch for prediction markets is an argument about knowledge, dressed up as a medium for making bets. information about the future is scattered across thousands of separate heads: a crypto enthusiast who can sense the next crash, a pollster who has scoured one more data source than everyone else, a software engineer who thinks they’ve cracked the code on what the best large language model (llm) is — no central authority can ever collect all of it. a market, in theory, can. it pays people to act on whatever they privately know, folds those scattered signals into a single number, and prints that number on a screen as a probability. in his famous 1945 essay, “The Use of Knowledge in Society,” economist Friedrich Hayek argued that prices function as a massive, decentralized communication system. this is essentially Hayek’s old argument about prices communicating dispersed knowledge, carried over from the price of grain to the probability of a recession.</p>
+
+                <p>when it works, it truly is impressive. the difficulty is that when it fails, it tends to fail in a way that looks exactly the way it does when it is working: a confident, liquid, precise-looking number that happens to be wrong, or that happens to be one wealthy person’s opinion wearing the costume of a crowd. what this means is that the useful question is not really whether prediction markets aggregate information, since the answer is clearly sometimes yes, but rather where the gap opens up between the theory of aggregation and the actual mechanism that is supposed to deliver it, and what tends to fall into that gap.</p>
+
+                <h3>what aggregation actually means</h3>
+
+                <p>imagine a contract that pays one dollar if some event happens and nothing if it doesn’t, and that every trader carries around a private probability that the event will occur. according to the kelly criterion, people bet to grow their wealth in proportion to their edge (the way a disciplined gambler would), and the market price settles at a weighted average of all those private probabilities. that part is the good news, and it is more or less the whole theoretical case for the format in a single sentence.</p>
+
+                <p>the catch lives in the weights. each trader’s pull on the price is proportional to their wealth, not to how often they turn out to be right. in other words, the price is a wealth-weighted average of beliefs, not a one-person-one-vote average and certainly not a truth-weighted one. the optimistic story says this is fine, even self-correcting, because the people who are right get paid and the people who are wrong go broke, so influence should drift over time toward the accurate. yet the very thing that is supposed to fix the market is also the thing that can so easily break it. a trader’s say over the displayed number is set by the size of the bankroll they are willing to commit, and aggregation is only as trustworthy as the correlation between wealth and accuracy among the people currently trading. at the foundation, almost every problem that follows is a way for that correlation to come apart.</p>
+
+                <h3>the market that cannot start itself</h3>
+
+                <p>the no-trade theorem, coined by economists Paul Milgrom and Nancy Stokey in their 1982 paper, “Information, Trade and Common Knowledge,” claimed that if everyone is rational, everyone shares the same starting assumptions and everyone knows that everyone is rational, so no speculative trade happens at all. in other words, if i offer to sell you a contract, my willingness to sell is itself a piece of information, because it tells you i think the thing is overpriced. a fully rational counterparty reads that signal and backs away, so the trade dies before it is ever made. trading purely on private information thus slowly destabilizes the market.</p>
+
+                <p>the Grossman-Stiglitz paradox, aptly named by economists Sanford Grossman and Joseph Stiglitz in their 1980 paper “On the Impossibility of Informationally Efficient Markets,” further drives this point. if prices already reflect everyone’s private information perfectly, then nobody has any reason to spend effort or money gathering information, because they can simply read the price for free. but, on the flip side, if nobody gathers information, the price has nothing to reflect. a perfectly efficient information market destroys the very incentive that would make it efficient, so the only stable situation is one that is a little bit broken, leaving enough money on the table to pay the people doing the actual research.</p>
+
+                <p>the way real markets escape this is almost paradoxical: they are full of people trading for reasons that have nothing to do with superior information. entertainment, hedging, ideology, boredom, plain loyalty to a team. these traders (often referred to as noise traders) lose money on average, and that expected loss is the bounty that makes it worth a well-informed trader’s time to show up and push the price toward the truth. an automated market maker that subsidizes trading plays the same role from the other direction, standing ready to take the other side and absorbing a bounded loss for the privilege. however, this is uncomfortable to admit. a prediction market is informative partly because it is also a casino. the recreational money is not a regrettable side effect of the accurate signal; it is the thing financing the accurate signal. take it away and you do not get a purer oracle, you get an empty order book.</p>
+
+                <h3>thinness, and the price set by one click</h3>
+
+                <p>the no-trade problem is fairly abstract, but its everyday shadow is much more mundane: that most markets are thin.</p>
+
+                <p>in a deep market, the displayed price reflects the marginal opinion of many participants, and any single trade barely nudges it. in a thin market, the displayed price is more or less whatever the last trade said, and the probability you are reading is an artifact of one person’s click. the headline markets, like a presidential race or a central bank decision, attract the liquidity. the long tail of smaller markets often has a spread you could drive a truck through and a midpoint propped up by a few dollars.</p>
+
+                <p>this matters because the precision is misleading in a very specific way. a market quoting twenty-three percent looks like it is making a two-significant-figure claim about the world. but if the real spread runs from eighteen to twenty-eight, and the last trade was forty dollars, the honest reading is something closer to “probably in the twenties, set by almost nobody.” the interface thus launders a low-information trade into a high-confidence-looking number, and the same feature that makes a deep market impressive is precisely what makes a thin one deceptive, because the marginal opinion here is a sample of size one rather than an aggregation.</p>
+                
+                <p>the automated market maker version of this has its own twist. such a maker has a tunable knob that sets how much money it takes to move the price by a given amount. turn the knob one way and the market is cheap to run but trivially easy to swing, so a small bet sends the probability lurching. turn it the other way and the price becomes stable but sluggish, absorbing real information slowly because it is busy absorbing noise slowly too. there is no setting that is both responsive to genuine information and resistant to manipulation, for the simple reason that the mechanism cannot tell the two apart. to the market, they are both just orders.</p>
+
+                <h3>wealth-weighting is not truth-weighting</h3>
+
+                <p>the hopeful claim here was that wealth tracks accuracy over time, because good forecasters get richer and louder while bad ones get poorer and quieter, so the market acts as a pump routing influence toward the people who are right.</p>
+
+                <p>the research here shows that reality is a little more complicated. economists Lawrence Blume and David Easley, in a 2006 paper titled "If You're So Smart, Why Aren't You Rich?", showed that whether accurate traders dominate depends not just on accuracy but on how aggressively they bet and how much they reinvest. you can construct perfectly reasonable settings in which a less accurate trader who bets harder, or compounds faster, accumulates wealth more quickly than a better-calibrated but more cautious rival, and therefore ends up steering the price. survival in a market selects for a whole bundle of traits at once, and being right is only one strand of it. the pump that was supposed to route influence toward truth is really routing it toward whoever compounds fastest, which is a related but distinctly different target.</p>
+
+                <p>furthermore, even in its best form the selection story is a long-run argument, which is cold comfort for any single market. a given contract resolves once, on a fixed date, and then it is gone. there is no time for the dynamic to grind out its verdict. the price is just today’s wealth-weighted snapshot, and if the wealth in the room today happens to belong to confidently wrong people, the price is confidently wrong, with no corrective force available inside the lifetime of the bet. selection is real, but it is a statement about the whole ecosystem across many years, not a promise about the number on your screen right now.</p>
+
+                <h3>correlated traders and the illusion of a crowd</h3>
+
+                <p>the idea that averaging many guesses beats most individual guesses rests on a condition that is easy to state but easy to forget: the errors have to be at least partly independent. averaging only cancels error when the errors point in different directions. average a thousand correlated guesses and you do not get a thousandfold improvement, you get one guess wearing a thousand layers.</p>
+
+                <p>prediction markets break this condition constantly because traders all drink from the same well. when everyone’s so-called private information is really the same public polling average, the same viral forecast, the same prior market price, the crowd is not a thousand independent signals but one signal multiplied. this is the engine behind what are called information cascades. once the price has tipped far enough, a rational trader stops acting on their own weak private hunch and starts acting on the price itself, because the price seems to carry everyone else’s information already. their hunch never enters the aggregate. the market locks onto a value and stops listening, and nothing guarantees that the value it locked onto was the right one rather than wherever the early movers happened to land.</p>
+
+                <p>the unsettling part is that this is caused by the very feature that makes markets appealing, namely the public real-time price. the price is meant to be an output, a readout of what has been aggregated. yet the moment traders condition their own behavior on it, it becomes an input to their beliefs as well, and the aggregation begins double-counting itself. everyone defers to the consensus, so the consensus is mostly everyone deferring, and it ultimately rests on far less independent thinking than its crispness would suggest.</p>
+
+                <h3>reflexivity, or when the price changes the world</h3>
+
+                <p>every failure so far has assumed the event is fixed and the market is a flawed instrument pointed at it. however, the deepest failure drops that assumption because sometimes the price influences the event it is trying to predict.</p>
+
+                <p>election markets are the obvious case. the displayed probability is not a passive measurement that sits politely off to the side. it gets quoted in the press, it shapes the story of who is winning and who is fading, it nudges donor enthusiasm, it energizes one base and demoralizes another, and in doing so it moves the behavior of the very people whose behavior the market is trying to forecast. the path from belief to price to outcome now has a loop in it. you are no longer reading a probability off a thermometer, you are reading it off a thermometer that warms the room.</p>
+
+                <p>this strains the theory at its foundation, given the clean aggregation result assumed each trader’s belief was about a fixed external fact. once the price feeds back into the outcome, the “true probability” is no longer a stationary target the price is converging toward; rather, it is a moving point that the price itself helps determine and opens a door that a pure information market does not have. a trader can now rationally take a losing position on purpose, simply because the displayed price is worth more to them than the bet costs. move the probability, shift the narrative, and collect the payoff somewhere outside the market entirely. the mechanism has no defense against this, because it cannot see motives. an order pushing the price toward seventy percent looks identical whether it comes from someone who sincerely believes seventy percent or from someone who wants the world to believe it. the number is manipulable in exact proportion to how influential it is, and its influence was the whole reason anyone built it.</p>
+
+                <h3>takeaways</h3>
+
+                <p>none of this means the markets do not work. it means that “does it aggregate information” is the wrong question, because the real answer is “sometimes, partially, for some markets, weighted by wealth, conditional on an independence that often does not hold, and pointed at an event it may itself be disturbing.” the more useful questions are narrower. how deep is this particular market, given that price precision means nothing without volume and a tight spread behind it? how concentrated is the money, given that a consensus held by ten thousand small traders and a “consensus” held mostly by three whales look identical on screen and mean entirely different things? is the price independent of its own inputs, given that a market made up of people reading polls is just a laundered poll rather than a second opinion? does the price feed back into the event, given that for sports and weather it does not, but for elections and policy and anything where perceived momentum matters it does, which makes the readout partly an instrument rather than purely a measurement?</p>
+
+                <p>the honest framing is that a prediction market price is a wealth-weighted, liquidity-dependent, possibly reflexive estimate produced by a population whose independence and calibration you cannot actually see. that is often a good estimate, but it is an estimate with a specific failure surface, and the places it breaks are not randomized. they are exactly the places where wealth stops tracking truth and where independence collapses.</p>
+
+            </div>
+        </article>
+
+        <div class="social-footer">
+            <a href="mailto:sbhattachary@wesleyan.edu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+                Email
+            </a>
+            <a href="https://www.linkedin.com/in/shloka-bhattacharyya/" target="_blank" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                LinkedIn
+            </a>
+            <a href="https://github.com/shlokabhattacharyya" target="_blank" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                Github
+            </a>
+        </div>
+    </div>
+
+    <script src="/assets/script.js"></script>
+</body>
+</html>
