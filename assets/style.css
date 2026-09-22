@@ -256,6 +256,64 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .comments b { color: var(--hot); }
 .comments .sep { color: var(--pink); }
 
+.comment-form {
+    margin: 0 14px 12px;
+    padding: 12px;
+    background: var(--cream);
+    border: 1px solid var(--pink);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 11px;
+    color: var(--plum);
+    font-weight: bold;
+}
+.comment-form label { display: flex; flex-direction: column; gap: 3px; }
+.comment-form input[type="text"], .comment-form textarea {
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: normal;
+    color: var(--text);
+    background: var(--white);
+    border: 1px solid var(--pink);
+    padding: 4px 6px;
+    resize: vertical;
+}
+.comment-form #c-website { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.comment-form-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.comment-form button {
+    background: var(--pale);
+    color: var(--plum);
+    border: 1px solid var(--pink);
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 4px 12px;
+    cursor: pointer;
+}
+.comment-form button:hover { background: var(--strip); }
+.comment-form button:disabled { opacity: 0.6; cursor: default; }
+.comment-status { font-weight: normal; color: var(--muted); }
+.comment-status.error { color: var(--link); font-weight: bold; }
+.comment-status.ok { color: var(--hot); font-weight: bold; }
+
+.comment-list { display: flex; flex-direction: column; }
+.comment { display: flex; border-top: 1px solid var(--pale); }
+.comment .who {
+    width: 120px;
+    flex-shrink: 0;
+    background: var(--blush);
+    padding: 10px;
+    font-size: 11px;
+    font-weight: bold;
+    color: var(--link);
+    word-break: break-word;
+}
+.comment .what { padding: 10px 14px; font-size: 12px; line-height: 1.55; min-width: 0; flex-grow: 1; }
+.comment .when { font-size: 10px; color: var(--plum); margin-bottom: 3px; }
+.comment .text { white-space: pre-wrap; word-break: break-word; }
+.comment-empty { padding: 10px 14px 14px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--pale); }
+
 /* ---------- blog post ---------- */
 
 .post { padding: 18px 24px 24px; }
@@ -309,5 +367,6 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
     .entry { flex-direction: column; gap: 2px; }
     .entry .date { width: auto; }
     .fact .key { width: 76px; }
+    .comment { flex-direction: column; }
+    .comment .who { width: auto; padding: 6px 10px; }
 }
-

@@ -99,18 +99,28 @@
                 <div class="facts">
                     <div class="fact"><div class="key">hobbies</div><div class="val">violin, piano, guitar, hiking, skateboarding, Kalshi, LEGOs, Minecraft, crosswords, U.S. quarter collecting</div></div>
                     <div class="fact"><div class="key">artists</div><div class="val">lizzy mcalpine, dominic fike, ethel cain, audrey hobert, mk.gee, jeff buckley, big thief, blood orange, olivia rodrigo, mazzy star, the smashing pumpkins, searows, cocteau twins, gracie abrams</div></div>
-                    <div class="fact"><div class="key">movies</div><div class="val">la la land, didi, good will hunting, dead poets society, interstellar, soul, wonder, the odyssey, zathura, brokeback mountain</div></div>
+                    <div class="fact"><div class="key">movies</div><div class="val">la la land, didi, good will hunting, dead poets society, interstellar, soul, wonder, the odyssey, zathura, brokeback mountain, the matrix</div></div>
                     <div class="fact"><div class="key">shows</div><div class="val">gilmore girls, the o.c., smallville, sterling point, one tree hill, twin peaks, the arrow, the flash, lost in space </div></div>
-                    <div class="fact"><div class="key">books</div><div class="val">on earth we're briefly gorgeous by ocean vuong, the invisible life of addie larue by v. e. schwab, 1984 by george orwell, the catcher in the rye by j. d. salinger, the song of achilles by madeline miller, her name in the sky by kelly quindlen</div></div>
+                    <div class="fact"><div class="key">books</div><div class="val">on earth we're briefly gorgeous by ocean vuong, 1984 by george orwell, the catcher in the rye by j. d. salinger, the song of achilles by madeline miller, her name in the sky by kelly quindlen</div></div>
                 </div>
             </div>
 
                     <div class="box">
                         <div class="box-title"><span>shloka's friends comments</span></div>
-                        <div class="comments">
-                            <span>displaying <b>0</b> of <b>0</b> comments</span>
-                            <span class="sep">(</span><a href="#">view all</a><span class="sep">|</span><a href="#">add comment</a><span class="sep">)</span>
+                        <div class="comments" id="comments">
+                            <span>displaying <b id="c-shown">&hellip;</b> of <b id="c-total">&hellip;</b> comments</span>
+                            <span class="sep">(</span><a href="#" id="c-view-all">view all</a><span class="sep">|</span><a href="#" id="c-add">add comment</a><span class="sep">)</span>
                         </div>
+                        <form class="comment-form" id="c-form" hidden>
+                            <label>your name <input type="text" id="c-name" maxlength="40" autocomplete="nickname" required></label>
+                            <label>your comment <textarea id="c-text" maxlength="500" rows="3" required></textarea></label>
+                            <input type="text" id="c-website" tabindex="-1" autocomplete="off" aria-hidden="true">
+                            <div class="comment-form-row">
+                                <button type="submit" id="c-post">post comment</button>
+                                <span class="comment-status" id="c-status"><span id="c-count">500</span> characters left</span>
+                            </div>
+                        </form>
+                        <div class="comment-list" id="c-list"></div>
                     </div>
                 </div>
             </div>
@@ -120,5 +130,6 @@
         <span>&copy; 2026 shloka bhattacharyya</span><span>
     </footer>
     <script src="/assets/script.js"></script>
+    <script type="module" src="/assets/comments.js"></script>
 </body>
 </html>
