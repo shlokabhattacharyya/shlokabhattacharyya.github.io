@@ -40,6 +40,29 @@ document.addEventListener('DOMContentLoaded', () => {
         { kind: 'article', title: 'the cancellation of jimmy kimmel', sub: 'The Wesleyan Argus, september 30, 2025', url: 'https://wesleyanargus.com/2025/09/30/in-attempting-to-silence-kimmel-trump-grinds-away-at-pillars-of-free-expression-political-speech/' },
     ];
 
+    // ----- surfing the internet -----
+    const surfBtn = document.getElementById('surf-btn');
+    if (surfBtn) {
+        let links = [];
+        let last = -1;
+        fetch('/assets/surf.json')
+            .then(r => r.json())
+            .then(data => { links = data; })
+            .catch(() => { surfBtn.disabled = true; surfBtn.textContent = 'no links loaded'; });
+
+        surfBtn.addEventListener('click', () => {
+            if (!links.length) return;
+            let i;
+            do { i = Math.floor(Math.random() * links.length); } while (links.length > 1 && i === last);
+            last = i;
+            const pick = links[i];
+            const url = typeof pick === 'string' ? pick : pick.url;
+            const lastEl = document.getElementById('surf-last');
+            if (lastEl) lastEl.textContent = 'last stop: ' + (pick.title || url);
+            window.open(url, '_blank', 'noopener');
+        });
+    }
+
     const input = document.getElementById('search');
     const button = document.getElementById('search-btn');
     const note = document.querySelector('.search-note');
