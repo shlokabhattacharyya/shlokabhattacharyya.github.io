@@ -219,12 +219,12 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .online {
     display: inline-block;
     align-self: flex-start;
-    background: var(--yellow-deep);
+    background: var(--box-strip);
     border: 2px dotted var(--hot);
     padding: 4px 12px;
     font-size: 12px;
     font-weight: bold;
-    color: var(--hot);
+    color: var(--box-strip-text);
     letter-spacing: 2px;
     text-transform: uppercase;
 }
