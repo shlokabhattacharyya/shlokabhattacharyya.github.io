@@ -174,11 +174,12 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .col-left .box:nth-child(4n+4), .col-right .box:nth-child(4n+4), .single .box:nth-of-type(4n+4) {
     --box-bg: var(--green); --box-strip: var(--green-deep); --box-strip-text: var(--green-text);
 }
-/* override any box by hand: <div class="box box-blue"> */
-.box.box-yellow { --box-bg: var(--yellow); --box-strip: var(--yellow-deep); --box-strip-text: var(--yellow-text); }
-.box.box-purple { --box-bg: var(--purple); --box-strip: var(--purple-deep); --box-strip-text: var(--purple-text); }
-.box.box-blue   { --box-bg: var(--blue);   --box-strip: var(--blue-deep);   --box-strip-text: var(--blue-text); }
-.box.box-green  { --box-bg: var(--green);  --box-strip: var(--green-deep);  --box-strip-text: var(--green-text); }
+/* override any box by hand: <div class="box box-blue">
+   (written with extra specificity so it always beats the automatic cycle above) */
+.box.box-yellow.box-yellow { --box-bg: var(--yellow); --box-strip: var(--yellow-deep); --box-strip-text: var(--yellow-text); }
+.box.box-purple.box-purple { --box-bg: var(--purple); --box-strip: var(--purple-deep); --box-strip-text: var(--purple-text); }
+.box.box-blue.box-blue     { --box-bg: var(--blue);   --box-strip: var(--blue-deep);   --box-strip-text: var(--blue-text); }
+.box.box-green.box-green   { --box-bg: var(--green);  --box-strip: var(--green-deep);  --box-strip-text: var(--green-text); }
 
 .box-title {
     background: var(--box-strip);
