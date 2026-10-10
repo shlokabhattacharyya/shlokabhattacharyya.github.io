@@ -218,6 +218,16 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid 
 .blurbs h3 { font-size: 13px; font-weight: bold; color: var(--hot); }
 .blurbs p { font-size: 13px; line-height: 1.7; }
 
+/* surf box */
+.surf { padding: 12px 14px; font-size: 12px; display: flex; flex-direction: column; gap: 8px; }
+.surf button {
+    align-self: flex-start;
+    background: var(--pale); color: var(--plum); border: 1px solid var(--pink);
+    font-family: inherit; font-size: 11px; font-weight: bold; padding: 4px 12px; cursor: pointer;
+}
+.surf button:hover { background: var(--strip); }
+.surf-last { font-size: 10px; color: var(--plum); }
+
 /* dated lists (blog, writing) */
 .list { padding: 6px 14px 12px; display: flex; flex-direction: column; }
 .entry { display: flex; gap: 14px; padding: 10px 0; border-bottom: 1px dotted var(--pink); align-items: baseline; }
