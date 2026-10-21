@@ -2,7 +2,7 @@
 
 :root {
     --gray: #c0c0c0;       /* window chrome */
-    --bar: #808080;        /* title bars (flat gray) */
+    --bar: #c0c0c0b4;        /* title bars */
     --navy: #000080;       /* headings */
     --ink: #000000;
     --dim: #808080;
@@ -21,9 +21,9 @@
     --mint: #98d394;
     --yellow: #f8f87d;
     --magenta: #f0a3fb;
-    --peach: #fec96d;
+    --peach: #feb86d;
     --sky: #9fecf5;
-    --lime: #e5fca3;
+    --lime: #ffaaaa;
     --lavender: #c5a4ff;
     --rose: #ffaaaa;   --rose-key: #fa7e7e;
     --cream: #ffedd2;
