@@ -11,6 +11,7 @@
     --hover: #ff0066;
     --title: #ff66cc;      /* big header text */
     --title-shadow: #660066;
+    --h3: #cf26a2;
     --out: #c0c0c0;        /* outside-window text on the starfield */
     --out-link: #66ccff;
     --out-visited: #cc99ff;
@@ -215,7 +216,7 @@ header { text-align: center; padding: 14px 0 0; }
 
 /* blurb */
 .blurbs { padding: 6px 8px 8px; display: flex; flex-direction: column; gap: 8px; }
-.blurbs h3 { font-size: 11px; font-weight: bold; color: var(--title); }
+.blurbs h3 { font-size: 11px; font-weight: bold; color: var(--h3); }
 
 /* dated lists (blog, writing) */
 .list { padding: 4px 8px 6px; display: flex; flex-direction: column; }
