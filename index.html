@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=1200">
+    <meta name="viewport" content="width=800">
     <title>shloka bhattacharyya</title>
     <link rel="icon" type="image/png" href="/images/favicon.png">
     <link rel="stylesheet" href="/assets/style.css">
@@ -11,17 +11,17 @@
     <header>
         <div class="topbar">
             <a class="logo" href="/">shloka's space</a>
-            <div class="search">
-                <input id="search" type="text" aria-label="search this site" autocomplete="off">
-                <button type="button" id="search-btn">search</button>
-            </div>
-            <div class="topbar-links">help | log out</div>
         </div>
         <nav class="navstrip">
-            <a href="/">home</a><span class="sep">|</span>
-            <a href="/blog/">blog</a><span class="sep">|</span>
-            <a href="/projects/">projects</a><span class="sep">|</span>
-            <a href="/writing/">writing</a>
+            <a href="/">[ home ]</a><span class="sep">|</span>
+            <a href="/blog/">[ blog ]</a><span class="sep">|</span>
+            <a href="/projects/">[ projects ]</a><span class="sep">|</span>
+            <a href="/writing/">[ writing ]</a>
+            <div class="search">
+                <input id="search" type="text" aria-label="search this site" autocomplete="off" placeholder="search this site">
+                <button type="button" id="search-btn">search</button>
+            </div>
+            <div class="topbar-links"><span class="navbtn">[ help ]</span><span class="navbtn">[ log out ]</span></div>
         </nav>
         <div class="search-note"></div>
         <div class="search-results"></div>
@@ -30,37 +30,44 @@
         <div class="wrap">
             <div class="cols">
                 <div class="col-left">
-                    <div class="box profile box-blue">
-                        <div class="name">shloka bhattacharyya</div>
-                        <div class="inner">
-                            <div class="photo"><img src="/images/profile-picture.jpg" alt="shloka bhattacharyya"></div>
-                            <div class="details">
-                                <div>math, comp sci, & econ<br>undergraduate junior<br>wesleyan university</div>
-                                <span class="online">online</span>
-                                <div class="currently">currently: procrastinating studying for my waves midterm</div>
+
+                    <div class="box box-periwinkle">
+                        <div class="box-title"><span>welcome</span></div>
+                        <div class="profile">
+                            <div class="name">shloka bhattacharyya</div>
+                            <div class="inner">
+                                <div class="photo"><img src="/images/profile-picture.jpg" alt="shloka bhattacharyya"></div>
+                                <div class="details">
+                                    <div>math, comp sci, & econ<br>undergraduate junior<br>wesleyan university</div>
+                                    <div class="currently"><b>currently:</b> counting down the days until fall break</div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                <div class="box box-green">
-                <div class="box-title"><span>contacting shloka</span></div>
-                <div class="contact">
-                    <a href="mailto:sbhattachary@wesleyan.edu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg><span>email</span></a>
-                    <a href="https://www.linkedin.com/in/shloka-bhattacharyya/" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg><span>linkedin</span></a>
-                    <a href="https://github.com/shlokabhattacharyya" target="_blank" rel="noopener noreferrer"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg><span>github</span></a>                    
-                </div>
-            </div>
-
-                    <div class="box url-box box-yellow">
-                        <span class="label">shloka's URL:</span><br>
-                        <a href="/">shlokabhattacharyya.github.io</a>
+                    <div class="box box-mint">
+                        <div class="box-title"><span>contacting shloka</span></div>
+                        <div class="contact">
+                            <a href="mailto:sbhattachary@wesleyan.edu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg><span>email</span></a>
+                            <a href="https://www.linkedin.com/in/shloka-bhattacharyya/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg><span>linkedin</span></a>
+                            <a href="https://github.com/shlokabhattacharyya" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg><span>github</span></a>
+                            <a href="https://shloka444.substack.com" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16"/><path d="M4 9h16"/><path d="M4 14h16v6l-8-4-8 4z"/></svg><span>substack</span></a>
+                        </div>
                     </div>
 
-                    <div class="box box-purple">
+                    <div class="box box-yellow">
+                        <div class="box-title"><span>shloka's URL</span></div>
+                        <div class="url-box">
+                            <span class="label">shloka's URL:</span><br>
+                            <a class="mono" href="/">shlokabhattacharyya.github.io</a><br>
+                        </div>
+                    </div>
+
+                    <div class="box box-magenta">
                         <div class="box-title"><span>random wiki</span></div>
                         <div class="surf">
                             <p>as someone who loves surfing the internet, wikipedia is a natural home for me. clicking on the button below will redirect you to articles about topics that have interested me.</p>
-                            <button type="button" id="surf-btn">take me somewhere!</button>
+                            <button type="button" id="surf-btn">&gt;&gt; take me somewhere! &lt;&lt;</button>
                             <span class="surf-last" id="surf-last"></span>
                         </div>
                     </div>
@@ -68,55 +75,56 @@
                 </div>
 
                 <div class="col-right">
-                    <div class="box">
+
+                    <div class="box box-peach">
                         <div class="box-title"><span>shloka's blurb</span></div>
                         <div class="blurbs">
-                        <h3>about me:</h3>
-                        <p>hi, i'm shloka! i am an undergraduate junior at wesleyan university majoring in mathematics and computer science and minoring in economics. my general interests lie in theoretical mathematics, AI/ML and deep learning, fintech, software, design, and autonomous robotics.</p>
-                        <h3>who i'd like to meet:</h3>
-                        <p><a href="https://en.wikipedia.org/wiki/Tarek_Mansour"><u>tarek mansour</u></a>, <a href="https://en.wikipedia.org/wiki/Terence_Tao"><u>terence tao</u></a>, <a href="https://en.wikipedia.org/wiki/Chelsea_Finn"><u>chelsea finn</u></a>, <a href="https://en.wikipedia.org/wiki/Mary_Oliver"><u>mary oliver</u></a>, <a href="https://en.wikipedia.org/wiki/Ocean_Vuong"><u>ocean vuong</u></a></p>
+                            <div><h3>about me:</h3>
+                            <p>hi, i'm shloka! i am an undergraduate junior at wesleyan university majoring in mathematics and computer science and minoring in economics. my general interests lie in theoretical mathematics, AI/ML and deep learning, fintech, software, design, and autonomous robotics.</p></div>
+                            <div><h3>who i'd like to meet:</h3>
+                            <p><a href="https://en.wikipedia.org/wiki/Tarek_Mansour">tarek mansour</a>, <a href="https://en.wikipedia.org/wiki/Terence_Tao">terence tao</a>, <a href="https://en.wikipedia.org/wiki/Chelsea_Finn">chelsea finn</a>, <a href="https://en.wikipedia.org/wiki/Mary_Oliver">mary oliver</a>, <a href="https://en.wikipedia.org/wiki/Ocean_Vuong">ocean vuong</a></p></div>
                         </div>
                     </div>
 
-                    <div class="box">
+                    <div class="box box-sky">
                         <div class="box-title"><span>shloka's technical blog</span><a class="see-more" href="/blog/">[ see more&hellip; ]</a></div>
                         <div class="list">
-                            <div class="entry" data-search="will AI really kill us all? what jacob coxon’s resignation means for the rest of the world" data-url="https://shloka444.substack.com/p/the-threat-of-superintelligence"><span class="date">sept 14, 2026</span><div class="body"><a href="https://shloka444.substack.com/p/the-threat-of-superintelligence" target="_blank" rel="noopener noreferrer">will AI really kill us all?</a><span class="sub">what jacob coxon's resignation means for the rest of the world</span></div></div>
+                            <div class="entry" data-search="will AI really kill us all? what jacob coxon's resignation means for the rest of the world" data-url="https://shloka444.substack.com/p/the-threat-of-superintelligence"><span class="date">sept 14, 2026</span><div class="body"><a href="https://shloka444.substack.com/p/the-threat-of-superintelligence" target="_blank" rel="noopener noreferrer">will AI really kill us all?</a> <span class="new">NEW!</span><span class="sub">what jacob coxon's resignation means for the rest of the world</span></div></div>
                             <div class="entry" data-search="why constantly optimizing our productivity is robbing us of our ability to think originally on chatbots and agentic AI and humanoid robots and..." data-url="https://shloka444.substack.com/p/why-constantly-optimizing-our-productivity"><span class="date">aug 5, 2026</span><div class="body"><a href="https://shloka444.substack.com/p/why-constantly-optimizing-our-productivity" target="_blank" rel="noopener noreferrer">why constantly optimizing our productivity is robbing us of our ability to think originally</a><span class="sub">on chatbots and agentic AI and humanoid robots and...</span></div></div>
                             <div class="entry" data-search="information aggregation and its failure modes when the crowd is only one person" data-url="https://shloka444.substack.com/p/information-aggregation-and-its-failure-modes"><span class="date">june 30, 2026</span><div class="body"><a href="https://shloka444.substack.com/p/information-aggregation-and-its-failure-modes" target="_blank" rel="noopener noreferrer">information aggregation and its failure modes</a><span class="sub">when the crowd is only one person</span></div></div>
                         </div>
                     </div>
 
-                    <div class="box">
+                    <div class="box box-lime">
                         <div class="box-title"><span>shloka's projects</span><a class="see-more" href="/projects/">[ see more&hellip; ]</a></div>
                         <div class="cards">
-                            <div class="card" data-search="neural-alignment-benchmark comparing representations of world models (DIAMOND) to human brain activity (Meta TRIBE v2)." data-url="https://github.com/shlokabhattacharyya/neural-alignment-benchmark"><a href="https://github.com/shlokabhattacharyya/neural-alignment-benchmark" target="_blank" rel="noopener noreferrer">neural-alignment-benchmark</a><span class="sub">comparing representations of world models (DIAMOND) to human brain activity (Meta TRIBE v2).</span><span class="stack">Python <i>(DIAMOND, TRIBEv2, nilearn, torch, scikit-learn, numpy, scipy, matplotlib, seaborn, OpenCV)</i></span></div>
-                            <div class="card" data-search="dash AI-powered terminal productivity dashboard complete with tasks, calendar, and Pomodoro timer." data-url="https://github.com/shlokabhattacharyya/dash"><a href="https://github.com/shlokabhattacharyya/dash" target="_blank" rel="noopener noreferrer">dash</a><span class="sub">AI-powered terminal productivity dashboard complete with tasks, calendar, and Pomodoro timer.</span><span class="stack">Python <i>(Llama 3, Google Calendar API, REST APIs, tmux)</i></span></div>
-                            <div class="card" data-search="hft-inference-engine a low-latency MLP inference engine in C for market microstructure prediction." data-url="https://github.com/shlokabhattacharyya/hft-inference-engine"><a href="https://github.com/shlokabhattacharyya/hft-inference-engine" target="_blank" rel="noopener noreferrer">hft-inference-engine</a><span class="sub">a low-latency MLP inference engine in C for market microstructure prediction.</span><span class="stack">C, Python <i>(numpy, torch, scikit-learn)</i></span></div>
+                            <div class="card" data-search="neural-alignment-benchmark comparing representations of world models (DIAMOND) to human brain activity (Meta TRIBE v2)." data-url="https://github.com/shlokabhattacharyya/neural-alignment-benchmark"><a href="https://github.com/shlokabhattacharyya/neural-alignment-benchmark" target="_blank" rel="noopener noreferrer">neural-alignment-benchmark</a><span class="sub">comparing representations of world models (DIAMOND) to human brain activity (Meta TRIBE v2).</span><span class="stack">Python (DIAMOND, TRIBEv2, nilearn, torch, scikit-learn, numpy, scipy, matplotlib, seaborn, OpenCV)</span></div>
+                            <div class="card" data-search="dash AI-powered terminal productivity dashboard complete with tasks, calendar, and Pomodoro timer." data-url="https://github.com/shlokabhattacharyya/dash"><a href="https://github.com/shlokabhattacharyya/dash" target="_blank" rel="noopener noreferrer">dash</a><span class="sub">AI-powered terminal productivity dashboard complete with tasks, calendar, and Pomodoro timer.</span><span class="stack">Python (Llama 3, Google Calendar API, REST APIs, tmux)</span></div>
+                            <div class="card" data-search="hft-inference-engine a low-latency MLP inference engine in C for market microstructure prediction." data-url="https://github.com/shlokabhattacharyya/hft-inference-engine"><a href="https://github.com/shlokabhattacharyya/hft-inference-engine" target="_blank" rel="noopener noreferrer">hft-inference-engine</a><span class="sub">a low-latency MLP inference engine in C for market microstructure prediction.</span><span class="stack">C, Python (numpy, torch, scikit-learn)</span></div>
                         </div>
                     </div>
 
-                    <div class="box">
+                    <div class="box box-lavender">
                         <div class="box-title"><span>shloka's articles</span><a class="see-more" href="/writing/">[ see more&hellip; ]</a></div>
                         <div class="list">
-                            <div class="entry" data-search="forget the 2028 election, leftist infighting is going to cost us the midterms and more The Wesleyan Argus" data-url="https://wesleyanargus.com/2026/10/02/forget-the-2028-election-leftist-infighting-is-going-to-cost-us-the-midterms/"><span class="date">oct 2, 2026</span><div class="body"><a href="https://wesleyanargus.com/2026/10/02/forget-the-2028-election-leftist-infighting-is-going-to-cost-us-the-midterms/" target="_blank" rel="noopener noreferrer">forget the 2028 election, leftist infighting is going to cost us the midterms and more</a><span class="sub">The Wesleyan Argus</span></div></div>                        
-                            <div class="entry" data-search="the chatgpt moment for robitics Wesleyan Science Journal" data-url="https://thewesleyansciencejournal.com/articles/chatgpt-moment-for-robotics/"><span class="date">sept 26, 2026</span><div class="body"><a href="https://thewesleyansciencejournal.com/articles/chatgpt-moment-for-robotics/" target="_blank" rel="noopener noreferrer">the chatgpt moment for robotics</a><span class="sub">Wesleyan Science Journal</span></div></div>
+                            <div class="entry" data-search="forget the 2028 election, leftist infighting is going to cost us the midterms and more The Wesleyan Argus" data-url="https://wesleyanargus.com/2026/10/02/forget-the-2028-election-leftist-infighting-is-going-to-cost-us-the-midterms/"><span class="date">oct 2, 2026</span><div class="body"><a href="https://wesleyanargus.com/2026/10/02/forget-the-2028-election-leftist-infighting-is-going-to-cost-us-the-midterms/" target="_blank" rel="noopener noreferrer">forget the 2028 election, leftist infighting is going to cost us the midterms and more</a> <span class="new">NEW!</span><span class="sub">The Wesleyan Argus</span></div></div>
+                            <div class="entry" data-search="the chatgpt moment for robotics Wesleyan Science Journal" data-url="https://thewesleyansciencejournal.com/articles/chatgpt-moment-for-robotics/"><span class="date">sept 26, 2026</span><div class="body"><a href="https://thewesleyansciencejournal.com/articles/chatgpt-moment-for-robotics/" target="_blank" rel="noopener noreferrer">the chatgpt moment for robotics</a><span class="sub">Wesleyan Science Journal</span></div></div>
                             <div class="entry" data-search="the threat of superintelligence The Wesleyan Argus" data-url="https://wesleyanargus.com/2026/09/25/the-threat-of-superintelligence/"><span class="date">sept 25, 2026</span><div class="body"><a href="https://wesleyanargus.com/2026/09/25/the-threat-of-superintelligence/" target="_blank" rel="noopener noreferrer">the threat of superintelligence</a><span class="sub">The Wesleyan Argus</span></div></div>
                         </div>
                     </div>
 
-                    <div class="box">
-                <div class="box-title"><span>shloka's favorites</span></div>
-                <div class="facts">
-                    <div class="fact"><div class="key">hobbies</div><div class="val">violin, piano, guitar, hiking, skateboarding, reading, Kalshi, LEGOs, Minecraft, crosswords, U.S. quarter collecting</div></div>
-                    <div class="fact"><div class="key">artists</div><div class="val">lizzy mcalpine, dominic fike, ethel cain, audrey hobert, mk.gee, jeff buckley, big thief, blood orange, olivia rodrigo, mazzy star, the smashing pumpkins, searows, cocteau twins, gracie abrams, john mayer</div></div>
-                    <div class="fact"><div class="key">movies</div><div class="val">la la land, didi, good will hunting, dead poets society, interstellar, soul, wonder, the odyssey, zathura, brokeback mountain, the matrix</div></div>
-                    <div class="fact"><div class="key">shows</div><div class="val">gilmore girls, the o.c., smallville, sterling point, one tree hill, twin peaks, the arrow, the flash, lost in space </div></div>
-                    <div class="fact"><div class="key">books</div><div class="val">on earth we're briefly gorgeous by ocean vuong, 1984 by george orwell, the catcher in the rye by j. d. salinger, the song of achilles by madeline miller, her name in the sky by kelly quindlen</div></div>
-                </div>
-            </div>
+                    <div class="box box-rose">
+                        <div class="box-title"><span>shloka's favorites</span></div>
+                        <div class="facts">
+                            <div class="fact"><div class="key">hobbies</div><div class="val">violin, piano, guitar, hiking, skateboarding, reading, Kalshi, LEGOs, Minecraft, crosswords, U.S. quarter collecting</div></div>
+                            <div class="fact"><div class="key">artists</div><div class="val">lizzy mcalpine, dominic fike, ethel cain, audrey hobert, mk.gee, jeff buckley, big thief, blood orange, olivia rodrigo, mazzy star, the smashing pumpkins, searows, cocteau twins, gracie abrams, john mayer</div></div>
+                            <div class="fact"><div class="key">movies</div><div class="val">la la land, didi, good will hunting, dead poets society, interstellar, soul, wonder, the odyssey, zathura, brokeback mountain, the matrix</div></div>
+                            <div class="fact"><div class="key">shows</div><div class="val">gilmore girls, the o.c., smallville, sterling point, one tree hill, twin peaks, the arrow, the flash, lost in space</div></div>
+                            <div class="fact"><div class="key">books</div><div class="val">on earth we're briefly gorgeous by ocean vuong, 1984 by george orwell, the catcher in the rye by j. d. salinger, the song of achilles by madeline miller, her name in the sky by kelly quindlen</div></div>
+                        </div>
+                    </div>
 
-                    <div class="box">
+                    <div class="box box-cream">
                         <div class="box-title"><span>shloka's friends comments</span></div>
                         <div class="comments" id="comments">
                             <span>displaying <b id="c-shown">&hellip;</b> of <b id="c-total">&hellip;</b> comments</span>
@@ -133,13 +141,11 @@
                         </form>
                         <div class="comment-list" id="c-list"></div>
                     </div>
+
                 </div>
             </div>
         </div>
     </main>
-    <footer class="footer">
-        <span>&copy; 2026 shloka bhattacharyya</span><span>
-    </footer>
     <script src="/assets/script.js"></script>
     <script type="module" src="/assets/comments.js"></script>
 </body>
