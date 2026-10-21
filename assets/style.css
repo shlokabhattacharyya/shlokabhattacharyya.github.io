@@ -24,7 +24,7 @@
     --peach: #feae6d;
     --sky: #9fecf5;
     --rose: #fa9696;
-    --lavender: #deb8ff;
+    --lavender: #ecb8ff;
     --purple: #bb8dfbde;   --purple-key: #8e3ffcde;
     --cream: #ffedd2;
 }
@@ -178,7 +178,7 @@ header { text-align: center; padding: 14px 0 0; }
 .box-lime       { --box-bg: var(--lime); }
 .box-lavender   { --box-bg: var(--lavender); }
 .box-rose       { --box-bg: var(--rose); }
-.box-purple       { --box-bg: var(--purple); }
+.box-purple     { --box-bg: var(--purple); --box-key: var(--purple-key); }
 .box-cream      { --box-bg: var(--cream); }
 
 .note { padding: 4px 8px 8px; font-size: 10px; color: var(--dim); }
@@ -243,7 +243,7 @@ header { text-align: center; padding: 14px 0 0; }
 /* favorites table */
 .facts { display: flex; flex-direction: column; gap: 1px; background: #808080; padding: 1px; }
 .fact { display: flex; gap: 1px; }
-.fact .key { width: 60px; flex-shrink: 0; background: var(--rose-key); font-weight: bold; padding: 4px; }
+.fact .key { width: 60px; flex-shrink: 0; background: var(--purple-key); font-weight: bold; padding: 4px; }
 .fact .val { flex-grow: 1; padding: 4px; background: var(--box-bg); }
 .box-rose .facts { background: #808080; }
 
