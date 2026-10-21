@@ -3,7 +3,7 @@
 :root {
     --gray: #c0c0c0;       /* window chrome */
     --bar: #c0c0c0b4;        /* title bars */
-    --navy: #000080;       /* headings */
+    --navy: #000000;       /* headings */
     --ink: #000000;
     --dim: #808080;
     --link: #0000cc;
@@ -163,8 +163,8 @@ header { text-align: center; padding: 14px 0 0; }
 .box-title:has(.see-more)::after, .box-title:has(.count)::after { content: none; }
 .box-title .count { font-weight: normal; font-size: 10px; }
 .see-more { font-size: 10px; font-weight: normal; }
-.box-title a, .box-title a:visited { color: #ffff00; }
-.box-title a:hover { color: #fff; }
+.box-title a, .box-title a:visited { color: #fff; }
+.box-title a:hover { color: #ffffffbf; }
 
 /* window bodies */
 .box > :not(.box-title) { background: var(--box-bg); }
