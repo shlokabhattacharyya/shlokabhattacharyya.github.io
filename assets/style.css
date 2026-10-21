@@ -179,8 +179,6 @@ header { text-align: center; padding: 14px 0 0; }
 .box-lavender   { --box-bg: var(--lavender); }
 .box-rose       { --box-bg: var(--rose); }
 .box-cream      { --box-bg: var(--cream); }
-/* old names from the previous stylesheet keep working on the subpages */
-.box-blue { --box-bg: var(--periwinkle); } .box-green { --box-bg: var(--mint); } .box-purple { --box-bg: var(--lavender); }
 
 .note { padding: 4px 8px 8px; font-size: 10px; color: var(--dim); }
 
