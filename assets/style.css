@@ -20,12 +20,12 @@
     --periwinkle: #9dc0fc;
     --mint: #98d394;
     --yellow: #f8f87d;
-    --magenta: #f0a3fb;
-    --peach: #feb86d;
+    --magenta: #fba3de;
+    --peach: #feae6d;
     --sky: #9fecf5;
-    --lime: #ffaaaa;
+    --rose: #ffaaaa;
     --lavender: #c5a4ff;
-    --rose: #ffaaaa;   --rose-key: #fa7e7e;
+    --lime: #eaffaa;   --lime-key: #b0fa7e;
     --cream: #ffedd2;
 }
 
@@ -56,7 +56,7 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 1px dotted
 hr { border: 0; border-top: 1px solid #808080; border-bottom: 1px solid #fff; margin: 6px 0; }
 
 .mono { font-family: 'Courier New', Courier, monospace; }
-.new { color: #ff0000; font-weight: bold; font-size: 9px; }
+
 
 /* ---------- header ---------- */
 
