@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>shloka bhattacharyya</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/assets/home.css">
+    <script>
+        // random background on every load (runs before paint so there is no flash)
+        const PALETTE = ['#a6b8de', '#eaaebc', '#78b778', '#feb983', '#fff4a8', '#cfc9ff', '#d97b7d'];
+        document.documentElement.style.setProperty('--bg', PALETTE[Math.floor(Math.random() * PALETTE.length)]);
+    </script>
+</head>
+<body>
+<div class="page">
+  <div class="left">
+    <div class="profile">
+      <div class="cards">
+        <img class="photo" src="/images/profile-picture.jpg" alt="shloka bhattacharyya">
+        <!-- optional second card from the mockup — delete this line if you only want one photo -->
+        <img class="photo-2" src="/images/profile-picture-2.jpg" alt="">
+      </div>
+      <div>
+        <h1>shloka bhattacharyya</h1>
+        <p>math, comp sci, &amp; econ<br>undergraduate junior<br>wesleyan university</p>
+        <p class="currently">currently: larping in new york city</p>
+      </div>
+    </div>
+
+    <section>
+      <h2>about me</h2>
+      <p>hi, i'm shloka! i am an undergraduate junior at wesleyan university majoring in mathematics and computer science and minoring in economics. my general interests lie in theoretical mathematics, AI/ML and deep learning, fintech, software, design, and autonomous robotics.</p>
+    </section>
+
+    <section>
+      <h2>who i'd like to meet</h2>
+      <p><a href="https://en.wikipedia.org/wiki/Tarek_Mansour">tarek mansour</a>, <a href="https://en.wikipedia.org/wiki/Terence_Tao">terence tao</a>, <a href="https://en.wikipedia.org/wiki/Chelsea_Finn">chelsea finn</a>, <a href="https://en.wikipedia.org/wiki/Mary_Oliver">mary oliver</a>, <a href="https://en.wikipedia.org/wiki/Ocean_Vuong">ocean vuong</a></p>
+    </section>
+
+    <section>
+      <h2>contact</h2>
+      <div class="contact">
+        <a href="mailto:sbhattachary@wesleyan.edu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>email</a>
+        <a href="https://www.linkedin.com/in/shloka-bhattacharyya/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>linkedin</a>
+        <a href="https://github.com/shlokabhattacharyya"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>github</a>
+        <a href="https://shloka444.substack.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16"/><path d="M4 9h16"/><path d="M4 14h16v6l-8-4-8 4z"/></svg>substack</a>
+      </div>
+    </section>
+  </div>
+
+  <div class="right">
+    <canvas id="nav3d" aria-label="site navigation: blog, articles, projects, favorites, random"></canvas>
+    <div class="labels" id="labels"></div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="/assets/lowpoly.js"></script>
+<script src="/assets/script.js"></script>
+<script>
+fetch('/assets/caesar.json').then(r => r.json()).then(bust => {
+  mountLowPoly({
+    bust, canvas: document.getElementById('nav3d'), labelHost: document.getElementById('labels'), onPick: item => { window.location.href = item.href; },
+    items: [
+      { key: 'statue',     href: '/blog/',      label: 'blog' },
+      { key: 'guitar',     href: '/writing/',   label: 'articles' },
+      { key: 'rocket',     href: '/projects/',  label: 'projects' },
+      { key: 'legos',      href: '/favorites/', label: 'favorites' },
+      { key: 'clementine', href: '/random/',    label: 'random' }
+    ],
+    // tall column: zig-zag down the empty side; wide strip (mobile): one row
+    arrange: (aspect, n) => aspect > 1.6
+      ? { axis: 'x', span: 15, points: [...Array(n)].map((_, i) => ({ x: (i - (n - 1) / 2) * 2.9, y: 0.4 })) }
+      : { axis: 'y', span: 13.8, points: [...Array(n)].map((_, i) => { const sx = Math.min(1, aspect * 1.25), off = Math.max(0, 6.9 * aspect - (3.0 * sx + 1.7)); return { x: (i % 2 ? 3.0 : -3.0) * sx + off, y: 4.5 - i * 2.25 }; }) }
+  });
+});
+</script>
+</body>
+</html>

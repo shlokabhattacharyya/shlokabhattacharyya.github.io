@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>random | shloka bhattacharyya</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/assets/pages.css">
+    <script>
+        const PALETTE = ['#a6b8de', '#eaaebc', '#78b778', '#feb983', '#fff4a8', '#cfc9ff', '#d97b7d'];
+        document.documentElement.style.setProperty('--bg', PALETTE[Math.floor(Math.random() * PALETTE.length)]);
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <nav class="topnav">
+        <a class="home" href="/">shloka bhattacharyya</a>
+        <a href="/blog/">blog</a><a href="/writing/">articles</a><a href="/projects/">projects</a><a href="/favorites/">favorites</a><a href="/random/">random</a>
+    </nav>
+
+    <main>
+    <h1>random</h1>
+    <div class="surf">
+      <p>as someone who loves surfing the internet, wikipedia is a natural home for me. the button below will take you to an article about something that has interested me.</p>
+      <button class="plain" type="button" id="surf-btn">take me somewhere</button><span class="surf-last" id="surf-last"></span>
+    </div>
+      
+    </main>
+</div>
+<script src="/assets/script.js"></script>
+</body>
+</html>
