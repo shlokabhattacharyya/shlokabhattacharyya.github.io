@@ -13,9 +13,13 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 .wrap { padding: clamp(28px, 6vh, 56px) var(--gutter) 64px; max-width: 760px; }
 
-/* back link, where the header used to be */
-.back { display: inline-block; text-decoration: none; color: var(--dim); margin-bottom: clamp(36px, 7vh, 64px); }
-.back:hover { color: var(--ink); }
+/* top row: house goes home, then the other pages */
+.topnav { display: flex; flex-wrap: wrap; gap: 0 22px; align-items: center; margin-bottom: clamp(36px, 7vh, 64px); }
+.topnav .home { display: inline-flex; margin-right: 10px; color: var(--ink); }
+.topnav .home svg { width: 16px; height: 16px; stroke: currentColor; }
+.topnav a:not(.home) { text-decoration: none; color: var(--dim); }
+.topnav a:not(.home):hover { color: var(--ink); }
+.topnav a.current { color: var(--ink); text-decoration: underline; }
 
 h1 { font-size: 14px; font-weight: 700; margin: 0 0 14px; }
 
@@ -46,5 +50,6 @@ button.plain:hover { background: var(--ink); color: #fff; }
 .surf-last { color: var(--dim); margin-left: 10px; }
 
 @media (max-width: 560px) {
+  .topnav { gap: 0 14px; }
   .entry, .fact { grid-template-columns: 1fr; gap: 2px; }
 }

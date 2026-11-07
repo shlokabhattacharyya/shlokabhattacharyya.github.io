@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ----- active nav link -----
     const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
-    document.querySelectorAll('.navstrip a').forEach(link => {
+    document.querySelectorAll('.navstrip a, .topnav a').forEach(link => {
         const linkPath = new URL(link.href).pathname.replace(/\/$/, '') || '/';
         const isActive = linkPath === currentPath ||
             (linkPath !== '/' && currentPath.startsWith(linkPath + '/'));
