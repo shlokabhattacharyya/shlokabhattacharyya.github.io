@@ -1,4 +1,4 @@
-/* home page only — the other pages keep style.css */
+/* home page only */
 :root { --bg: #a6b8de;          /* overwritten at load by the random pick in index.html */ --ink: #0a0a12; --dim: rgba(10,10,18,.62); --gutter: clamp(32px, 6vw, 88px); color-scheme: light; box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --ink: #0a0a12; --dim: rgba(10,10,18,.62); } }
@@ -22,8 +22,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-o
 .profile { display: flex; gap: 14px; align-items: flex-start; }
 .cards { display: flex; gap: 12px; flex-shrink: 0; }
 .cards img { display: block; border-radius: 8px; object-fit: cover; }
-.cards .photo { width: 96px; height: 156px; }
-.cards .photo-2 { width: 46px; height: 156px; }
+.cards .photo { width: 132px; height: 132px; }
 .profile h1 { font-size: 14px; margin: 0 0 12px; line-height: 1.6; }
 .profile p { margin: 0; }
 .profile .currently { margin-top: 16px; }
