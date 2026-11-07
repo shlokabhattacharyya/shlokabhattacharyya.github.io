@@ -31,14 +31,14 @@
     for (let i = 0; i < 6; i++) g.add(mesh(new THREE.BoxGeometry(0.012, 2.5, 0.012), chrome, -0.07 + i * 0.028, 0.75, 0.21));
     g.add(mesh(new THREE.CylinderGeometry(0.07, 0.07, 0.06, 8), cream, 0.5, -0.5, 0.16));
     g.add(mesh(new THREE.CylinderGeometry(0.07, 0.07, 0.06, 8), cream, 0.52, -0.72, 0.16));
-    g.position.y = -0.45; g.scale.setScalar(0.72);
+    g.position.y = -0.45; g.scale.setScalar(0.76);
     const w = new THREE.Group(); w.add(g); w.rotation.z = -0.35; w.rotation.x = 0.15;
     return w;
   }
 
   function rocket() {   /* shuttle, purple + green */
     const g = new THREE.Group();
-    const pale = M(0xd6f0d8), green = M(0x6fbf7a), dark = M(0x3f7a49), tank = M(0x7a4fd1);
+    const pale = M(0x9fd49a), green = M(0x4fa35c), dark = M(0x2d6b3a), tank = M(0x7a4fd1);
     // external tank
     g.add(mesh(new THREE.CylinderGeometry(0.3, 0.3, 2.3, 8), tank, 0, 0, -0.1));
     g.add(mesh(new THREE.ConeGeometry(0.3, 0.75, 8), tank, 0, 1.52, -0.1));
