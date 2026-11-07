@@ -1,5 +1,5 @@
 /* shared by blog, writing, projects, favorites, random */
-:root { --bg: #a6b8de; --ink: #0a0a12; --dim: rgba(10,10,18,.62); --rule: rgba(10,10,18,.28); --gutter: clamp(40px, 6vw, 110px); color-scheme: light; box-sizing: border-box;
+:root { --bg: #a6b8de; --ink: #0a0a12; --dim: rgba(10,10,18,.62); --rule: rgba(10,10,18,.28); --gutter: clamp(32px, 6vw, 88px); color-scheme: light; box-sizing: border-box;
   padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --ink: #0a0a12; } }
 :root[data-theme="dark"] { --ink: #0a0a12; }
@@ -11,10 +11,10 @@ a:hover { text-decoration-thickness: 2px; }
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
 .mono { font-family: "Courier New", Courier, monospace; }
 
-.wrap { padding: clamp(56px, 10vh, 96px) 24px 80px; max-width: 640px; margin: 0 auto; }
+.wrap { padding: clamp(28px, 6vh, 56px) var(--gutter) 64px; max-width: 760px; }
 
-/* back link */
-.back { position: fixed; top: calc(env(safe-area-inset-top, 0px) + 20px); left: var(--gutter); text-decoration: none; color: var(--dim); }
+/* back link, where the header used to be */
+.back { display: inline-block; text-decoration: none; color: var(--dim); margin-bottom: clamp(36px, 7vh, 64px); }
 .back:hover { color: var(--ink); }
 
 h1 { font-size: 14px; font-weight: 700; margin: 0 0 14px; }
@@ -45,4 +45,6 @@ button.plain { font: inherit; font-weight: 700; color: var(--ink); background: n
 button.plain:hover { background: var(--ink); color: #fff; }
 .surf-last { color: var(--dim); margin-left: 10px; }
 
-@media (max-width: 560px) { .entry, .fact { grid-template-columns: 1fr; gap: 2px; } .back { left: 20px; } }
+@media (max-width: 560px) {
+  .entry, .fact { grid-template-columns: 1fr; gap: 2px; }
+}
