@@ -6,6 +6,7 @@
     <title>shloka bhattacharyya</title>
     <link rel="icon" type="image/png" href="/images/favicon.png">
     <link rel="stylesheet" href="/assets/home.css">
+    <!-- redirect pages in /blog/, /articles/ … send old links to these hashes -->
     <script>
         // random background on every load (runs before paint so there is no flash)
         const PALETTE = ['#a6b8de', '#eaaebc', '#78b778', '#feb983', '#fff4a8', '#cfc9ff', '#d97b7d'];
@@ -15,20 +16,22 @@
 <body>
 <div class="page">
   <div class="left">
+   <div class="inner">
+    <section class="view" id="v-home">
     <div class="profile">
       <div class="cards">
         <img class="photo" src="/images/profile-picture.jpg" alt="shloka bhattacharyya">
       </div>
       <div>
         <h1>shloka bhattacharyya</h1>
-        <p>math, comp sci, &amp; econ<br>undergraduate junior<br>wesleyan university</p>
+        <p>math, comp sci, &amp; physics<br>undergraduate junior<br>wesleyan university</p>
         <p class="currently">currently: leetcoding until my eyes bleed</p>
       </div>
     </div>
 
     <section>
       <h2>about me</h2>
-      <p>hi, i'm shloka! i am an undergraduate junior at wesleyan university majoring in mathematics and computer science and minoring in economics. my general interests lie in theoretical mathematics, AI/ML, graphics, fintech, software, design, and autonomous robotics.</p>
+      <p>hi, i'm shloka! i am an undergraduate junior at wesleyan university majoring in mathematics and computer science and minoring in physics. my general interests lie in theoretical mathematics, AI/ML, graphics, fintech, software, design, and autonomous robotics.</p>
     </section>
 
     <section>
@@ -45,8 +48,72 @@
         <a href="https://shloka444.substack.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16"/><path d="M4 9h16"/><path d="M4 14h16v6l-8-4-8 4z"/></svg>substack</a>
       </div>
     </section>
-  </div>
+    </section>
 
+    <section class="view" id="v-blog">
+      <h1>blog</h1>
+      <div class="entry"><span class="date">sept 14, 2026</span><div><a class="title" href="https://shloka444.substack.com/p/the-threat-of-superintelligence">will AI really kill us all?</a><span class="sub">what jacob coxon's resignation means for the rest of the world</span></div></div>
+      <div class="entry"><span class="date">aug 5, 2026</span><div><a class="title" href="https://shloka444.substack.com/p/why-constantly-optimizing-our-productivity">why constantly optimizing our productivity is robbing us of our ability to think originally</a><span class="sub">on chatbots and agentic AI and humanoid robots and...</span></div></div>
+      <div class="entry"><span class="date">june 30, 2026</span><div><a class="title" href="https://shloka444.substack.com/p/information-aggregation-and-its-failure-modes">information aggregation and its failure modes</a><span class="sub">when the crowd is only one person</span></div></div>
+      <div class="entry"><span class="date">june 24, 2026</span><div><a class="title" href="https://shloka444.substack.com/p/mechanistic-interpretability-for-ai-safety">mechanistic interpretability for AI safety</a><span class="sub">how we can "read AI's mind"</span></div></div>
+      <div class="entry"><span class="date">may 16, 2026</span><div><a class="title" href="https://shloka444.substack.com/p/do-you-have-good-taste">do you have good taste?</a><span class="sub">how our perception of quality is changing</span></div></div>
+    </section>
+
+    <section class="view" id="v-articles">
+      <h1>articles</h1>
+      <div class="entry"><span class="date">nov 3, 2026</span><div><a class="title" href="https://wesleyanargus.com/2026/11/03/memetic-warfare-and-its-effects-on-us/">memetic warfare and its effects on us</a><span class="sub">the wesleyan argus</span></div></div>
+      <div class="entry"><span class="date">oct 2, 2026</span><div><a class="title" href="https://wesleyanargus.com/2026/10/02/forget-the-2028-election-leftist-infighting-is-going-to-cost-us-the-midterms/">forget the 2028 election, leftist infighting is going to cost us the midterms and more</a><span class="sub">the wesleyan argus</span></div></div>
+      <div class="entry"><span class="date">sept 26, 2026</span><div><a class="title" href="https://thewesleyansciencejournal.com/articles/chatgpt-moment-for-robotics/">the chatgpt moment for robotics</a><span class="sub">wesleyan science journal</span></div></div>
+      <div class="entry"><span class="date">sept 25, 2026</span><div><a class="title" href="https://wesleyanargus.com/2026/09/25/the-threat-of-superintelligence/">the threat of superintelligence</a><span class="sub">the wesleyan argus</span></div></div>
+      <div class="entry"><span class="date">april 17, 2026</span><div><a class="title" href="https://wesleyanargus.com/2026/04/17/now-were-commodifying-friendship/">now we're commodifying...friendship?</a><span class="sub">the wesleyan argus</span></div></div>
+      <div class="entry"><span class="date">april 3, 2026</span><div><a class="title" href="https://wesleyanargus.com/2026/04/03/is-ai-going-to-trap-you-in-a-permanent-underclass/">is AI going to trap you in a permanent underclass?</a><span class="sub">the wesleyan argus</span></div></div>
+      <div class="entry"><span class="date">feb 18, 2026</span><div><a class="title" href="https://www.wesleyanarcadia.com/arcadiapolitical/2026/2/18/xf91ifynheszukw8sf5oh5k9xdguuc">the weaponization of humanitarian aid</a><span class="sub">arcadia political review</span></div></div>
+      <div class="entry"><span class="date">dec 21, 2025</span><div><a class="title" href="https://www.wesleyanbusinessreview.com/issue-xi-finance-economics/a-new-era-of-power-demand-67kns-rawec">the financialization of everything</a><span class="sub">wesleyan business review</span></div></div>
+      <div class="entry"><span class="date">dec 21, 2025</span><div><a class="title" href="https://www.wesleyanbusinessreview.com/issue-xi-technology/a6oyjbvojbt7zab7dujv61vbhnlbwm-26tm5">the future of the corporate world in the age of artificial intelligence</a><span class="sub">wesleyan business review</span></div></div>
+      <div class="entry"><span class="date">nov 21, 2025</span><div><a class="title" href="https://wesleyanargus.com/2025/11/21/we-won-now-what/">we won! now what?</a><span class="sub">the wesleyan argus</span></div></div>
+      <div class="entry"><span class="date">nov 14, 2025</span><div><a class="title" href="https://wesleyanargus.com/2025/11/14/nobody-wants-to-listen-anymore/">nobody wants to listen anymore!</a><span class="sub">the wesleyan argus</span></div></div>
+      <div class="entry"><span class="date">oct 28, 2025</span><div><a class="title" href="https://wesleyanargus.com/2025/10/28/dear-vivek-ramaswamy-conservatives-will-never-fully-accept-you/">dear vivek ramaswamy, conservatives will never fully accept you</a><span class="sub">the wesleyan argus</span></div></div>
+      <div class="entry"><span class="date">oct 10, 2025</span><div><a class="title" href="https://wesleyanargus.com/2025/10/10/the-rise-of-anti-intellectualism-in-american-society/">the rise of anti-intellectualism in american society</a><span class="sub">the wesleyan argus</span></div></div>
+      <div class="entry"><span class="date">sept 30, 2025</span><div><a class="title" href="https://wesleyanargus.com/2025/09/30/in-attempting-to-silence-kimmel-trump-grinds-away-at-pillars-of-free-expression-political-speech/">the cancellation of jimmy kimmel</a><span class="sub">the wesleyan argus</span></div></div>
+    </section>
+
+    <section class="view" id="v-projects">
+      <h1>projects</h1>
+      <div class="project"><a class="name" href="https://github.com/shlokabhattacharyya/neural-alignment-benchmark">neural-alignment-benchmark</a><span class="sub">comparing representations of world models (DIAMOND) to human brain activity (Meta TRIBE v2).</span><span class="stack">Python (DIAMOND, TRIBEv2, nilearn, torch, scikit-learn, numpy, scipy, matplotlib, seaborn, OpenCV)</span></div>
+      <div class="project"><a class="name" href="https://github.com/shlokabhattacharyya/dash">dash</a><span class="sub">AI-powered terminal productivity dashboard complete with tasks, calendar, and Pomodoro timer.</span><span class="stack">Python (Llama 3, Google Calendar API, REST APIs, tmux)</span></div>
+      <div class="project"><a class="name" href="https://github.com/shlokabhattacharyya/hft-inference-engine">hft-inference-engine</a><span class="sub">a low-latency MLP inference engine in C for market microstructure prediction.</span><span class="stack">C, Python (numpy, torch, scikit-learn)</span></div>
+      <div class="project"><span class="name">urban displacement predictive model</span><span class="sub">machine learning predictive model for gentrification risk and housing displacement.</span><span class="stack">Python (scikit-learn, numpy, pandas, Google Earth Engine, geopandas, Flask)</span></div>
+      <div class="project"><a class="name" href="https://github.com/shlokabhattacharyya/statistical-arbitrage-backtester">statistical-arbitrage-backtester</a><span class="sub">a pairs-trading statistical arbitrage backtester with cointegration-based mean reversion.</span><span class="stack">Python (numpy, pandas, statsmodels, yfinance)</span></div>
+      <div class="project"><a class="name" href="https://github.com/shlokabhattacharyya/logical-fallacy-detector">logical-fallacy-detector</a><span class="sub">Chrome browser extension to detect logical fallacies in a piece of work.</span><span class="stack">Javascript, HTML, CSS</span></div>
+      <div class="project"><a class="name" href="https://github.com/shlokabhattacharyya/bad-chess">bad-chess</a><span class="sub">a set of chess engines that are really good at playing chess really bad.</span><span class="stack">Python</span></div>
+      <div class="project"><a class="name" href="https://github.com/shlokabhattacharyya/text-editor">text-editor</a><span class="sub">a text editor in C for C.</span><span class="stack">C</span></div>
+      <div class="project"><a class="name" href="https://github.com/shlokabhattacharyya/mathipedia">mathipedia</a><span class="sub">full-stack machine learning pipeline to cluster 5,000+ math concepts.</span><span class="stack">Python (scikit-learn, sentence-transformers, umap, numpy, Wikipedia API, Flask)</span></div>
+      <div class="project"><a class="name" href="https://github.com/shlokabhattacharyya/ascii-art-generator">ascii-art-generator</a><span class="sub">generate ASCII art of anything! powered by a HuggingFace AI model.</span><span class="stack">Python (numpy, Pillow, huggingface_hub, scikit-learn, scikit-image, scipy)</span></div>
+    </section>
+
+    <section class="view" id="v-favorites">
+      <h1>favorites</h1>
+      <div class="fact"><span class="key">hobbies</span><span>violin, piano, guitar, hiking, skateboarding, reading, Kalshi, LEGOs, Minecraft, crosswords, U.S. quarter collecting</span></div>
+      <div class="fact"><span class="key">artists</span><span>lizzy mcalpine, dominic fike, ethel cain, audrey hobert, mk.gee, jeff buckley, big thief, blood orange, olivia rodrigo, mazzy star, searows, the smashing pumpkins, cocteau twins, gracie abrams, john mayer</span></div>
+      <div class="fact"><span class="key">movies</span><span>la la land, didi, good will hunting, dead poets society, interstellar, soul, wonder, the odyssey, zathura, brokeback mountain, the matrix, fantastic mr. fox, club kid</span></div>
+      <div class="fact"><span class="key">shows</span><span>gilmore girls, the o.c., smallville, sterling point, one tree hill, twin peaks, adults, the arrow, the flash, lost in space</span></div>
+      <div class="fact"><span class="key">books</span><span>on earth we're briefly gorgeous by ocean vuong, 1984 by george orwell, the catcher in the rye by j. d. salinger, the song of achilles by madeline miller, her name in the sky by kelly quindlen, midnight's children by salman rushdie</span></div>
+    </section>
+
+    <section class="view" id="v-random">
+      <h1>random</h1>
+      <div class="surf">
+        <p>as someone who loves surfing the internet and learning everything i can, i have come across a lot of interesting websites and posts. the button below will take you to one of my favorites.</p>
+        <button class="plain" type="button" id="surf-btn">take me somewhere!</button><span class="surf-last" id="surf-last"></span>
+      </div>
+    </section>
+
+    <section class="view" id="v-photos">
+      <h1>photos</h1>
+      <div class="photos" id="photos"></div>
+    </section>
+   </div>
+  </div>
   <div class="right">
     <canvas id="nav3d" aria-label="site navigation: blog, articles, projects, favorites, random"></canvas>
     <div class="labels" id="labels"></div>
@@ -57,22 +124,48 @@
 <script src="/assets/lowpoly.js"></script>
 <script src="/assets/script.js"></script>
 <script>
+// ----- photos: add / remove paths here (any size; the grid staggers to fit) -----
+const PHOTOS = [
+  '/images/photos/01.jpg', '/images/photos/02.jpg', '/images/photos/03.jpg', '/images/photos/04.jpg',
+  '/images/photos/05.jpg', '/images/photos/06.jpg', '/images/photos/07.jpg', '/images/photos/08.jpg',
+  '/images/photos/09.jpg', '/images/photos/10.jpg', '/images/photos/11.jpg', '/images/photos/12.jpg'
+];
+document.getElementById('photos').innerHTML = PHOTOS.map(p => `<img src="${p}" alt="" loading="lazy">`).join('');
+
+// ----- sections: the models on the right swap what shows on the left -----
+const SECTIONS = ['home', 'blog', 'articles', 'projects', 'favorites', 'random', 'photos'];
+let nav = null;
+function show(id) {
+  if (!SECTIONS.includes(id)) id = 'home';
+  SECTIONS.forEach(s => document.getElementById('v-' + s).classList.toggle('on', s === id));
+  document.querySelector('.left').scrollTop = 0;
+  document.title = (id === 'home' ? '' : id + ' | ') + 'shloka bhattacharyya';
+  if (nav) nav.setCurrent(id);
+}
+addEventListener('hashchange', () => show(location.hash.slice(1)));
+show(location.hash.slice(1));
+
 fetch('/assets/caesar.json').then(r => r.json()).then(bust => {
-  mountLowPoly({
-    bust, canvas: document.getElementById('nav3d'), labelHost: document.getElementById('labels'), onPick: item => { window.location.href = item.href; },
+  nav = mountLowPoly({
+    bust, canvas: document.getElementById('nav3d'), labelHost: document.getElementById('labels'),
+    onPick: item => { location.hash = item.key === 'home' ? '' : item.key; if (!location.hash) show('home'); },
     items: [
-      { key: 'statue',     href: '/blog/',      label: 'blog' },
-      { key: 'guitar',     href: '/articles/',  label: 'articles' },
-      { key: 'rocket',     href: '/projects/',  label: 'projects' },
-      { key: 'legos',      href: '/favorites/', label: 'favorites' },
-      { key: 'clementine', href: '/random/',    label: 'random' }
+      { key: 'home',      label: 'home' },
+      { key: 'blog',      label: 'blog' },
+      { key: 'articles',  label: 'articles' },
+      { key: 'projects',  label: 'projects' },
+      { key: 'favorites', label: 'favorites' },
+      { key: 'random',    label: 'random' },
+      { key: 'photos',    label: 'photos' }
     ],
-    // tall column: zig-zag down the empty side; wide strip (mobile): one row
+    // tall column: zig-zag of seven down the right side; wide strip (mobile): one row
     arrange: (aspect, n) => aspect > 1.6
-      ? { axis: 'x', span: 15, points: [...Array(n)].map((_, i) => ({ x: (i - (n - 1) / 2) * 2.9, y: 0.4 })) }
-      : { axis: 'y', span: 13.8, points: [...Array(n)].map((_, i) => { const sx = Math.min(1, aspect * 1.25), off = Math.max(0, 6.9 * aspect - (3.0 * sx + 1.7)); return { x: (i % 2 ? 3.0 : -3.0) * sx + off, y: 4.5 - i * 2.25 }; }) }
+      ? { axis: 'x', span: 20, points: [...Array(n)].map((_, i) => ({ x: (i - (n - 1) / 2) * 2.8, y: 0.3 })) }
+      : { axis: 'y', span: 15.2, points: [...Array(n)].map((_, i) => { const sx = Math.min(1, aspect * 1.25), off = Math.max(0, 7.6 * aspect - (3.1 * sx + 1.8)); return { x: (i % 2 ? 3.1 : -3.1) * sx + off, y: 5.9 - i * 1.97 }; }) }
   });
+  nav.setCurrent(location.hash.slice(1) || 'home');
 });
 </script>
+
 </body>
 </html>

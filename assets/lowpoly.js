@@ -8,7 +8,7 @@
     const geo = new THREE.BufferGeometry();
     geo.setAttribute('position', new THREE.Float32BufferAttribute(opt.bust.v, 3)); geo.setIndex(opt.bust.i);
     const flat = geo.toNonIndexed(); flat.computeVertexNormals();
-    const bust = new THREE.Mesh(flat, M(0xf1ede6)); bust.rotation.y = -Math.PI / 2; bust.scale.setScalar(2.4); g.add(bust);
+    const bust = new THREE.Mesh(flat, M(0xece3d2)); bust.rotation.y = -Math.PI / 2; bust.scale.setScalar(2.4); g.add(bust);
     return g;
   }
 
@@ -68,12 +68,22 @@
 
   function legos() {
     const g = new THREE.Group();
-    const u = 0.38, h = 0.36;
+    const u = 0.38, h = 0.36, wall = 0.05, top = 0.08;
     function brick(nx, nz, color, x, y, z) {
-      const b = new THREE.Group(); const mat = M(color);
-      b.add(mesh(new THREE.BoxGeometry(nx * u, h, nz * u), mat, 0, 0, 0));
+      const b = new THREE.Group(); const mat = M(color); const W = nx * u, D = nz * u;
+      // hollow shell: top plate + four walls, so the underside is open like a real brick
+      b.add(mesh(new THREE.BoxGeometry(W, top, D), mat, 0, h / 2 - top / 2, 0));
+      b.add(mesh(new THREE.BoxGeometry(W, h - top, wall), mat, 0, -top / 2, D / 2 - wall / 2));
+      b.add(mesh(new THREE.BoxGeometry(W, h - top, wall), mat, 0, -top / 2, -D / 2 + wall / 2));
+      b.add(mesh(new THREE.BoxGeometry(wall, h - top, D - 2 * wall), mat, W / 2 - wall / 2, -top / 2, 0));
+      b.add(mesh(new THREE.BoxGeometry(wall, h - top, D - 2 * wall), mat, -W / 2 + wall / 2, -top / 2, 0));
+      // studs on top
       for (let i = 0; i < nx; i++) for (let j = 0; j < nz; j++)
         b.add(mesh(new THREE.CylinderGeometry(0.11, 0.11, 0.1, 10), mat, (i - (nx - 1) / 2) * u, h / 2 + 0.05, (j - (nz - 1) / 2) * u));
+      // tubes underneath, between the studs
+      const tubeMat = M(color, { side: THREE.DoubleSide });
+      for (let i = 0; i < nx - 1; i++) for (let j = 0; j < nz - 1; j++)
+        b.add(mesh(new THREE.CylinderGeometry(0.15, 0.15, h - top, 10, 1, true), tubeMat, (i - (nx - 2) / 2) * u, -top / 2, (j - (nz - 2) / 2) * u));
       b.position.set(x, y, z); return b;
     }
     g.add(brick(4, 2, 0x3a6fe0, -0.19, -0.18, -0.19));
@@ -94,7 +104,51 @@
     return g;
   }
 
-  const BUILDERS = { statue: statueHead, guitar, rocket, legos, clementine };
+  function bouquet() {   /* low-poly blossom tree (home) */
+    const g = new THREE.Group();
+    const bark = M(0x4a2e27), bark2 = M(0x5a3a30);
+    const pinks = [0xf4a9c9, 0xe98ab5, 0xf8c1d8, 0xe27aaa, 0xf0a0c4];
+    // trunk: tapered, flared at the root, few facets
+    g.add(mesh(new THREE.CylinderGeometry(0.16, 0.24, 1.3, 6), bark, 0, -0.55, 0));
+    g.add(mesh(new THREE.CylinderGeometry(0.24, 0.38, 0.28, 6), bark2, 0, -1.2, 0));
+    // branches: each one runs from the top of the trunk to a point inside the canopy
+    const top = new THREE.Vector3(0, 0.1, 0), up = new THREE.Vector3(0, 1, 0);
+    [[0.55, 0.75, 0.1], [-0.6, 0.7, 0.0], [0.2, 0.7, -0.55], [-0.2, 0.75, 0.5], [0, 1.0, 0]].forEach(t => {
+      const end = new THREE.Vector3(...t), dir = end.clone().sub(top), len = dir.length();
+      const b = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.1, len, 5), bark);
+      b.position.copy(top).add(dir.multiplyScalar(0.5)); b.quaternion.setFromUnitVectors(up, end.clone().sub(top).normalize()); g.add(b);
+    });
+    // canopy: chunky faceted blobs, each a little squashed and turned differently
+    const blobs = [[0, 0.95, 0, 0.7], [0.68, 0.7, 0.15, 0.54], [-0.7, 0.65, 0.05, 0.56], [0.3, 0.55, -0.62, 0.5], [-0.3, 0.6, 0.6, 0.5], [0.7, 1.05, -0.3, 0.42], [-0.58, 1.1, -0.35, 0.44], [0.1, 1.4, 0.2, 0.46], [0.55, 0.4, 0.58, 0.4], [-0.68, 0.38, -0.48, 0.4]];
+    blobs.forEach((p, i) => {
+      const b = mesh(new THREE.IcosahedronGeometry(p[3], 0), M(pinks[i % pinks.length]), p[0], p[1], p[2]);
+      b.scale.set(1, 0.9, 1); b.rotation.set(i * 0.7, i * 1.1, i * 0.4); g.add(b);
+    });
+    g.position.y = 0.05; g.scale.setScalar(0.8);
+    const w = new THREE.Group(); w.add(g); w.rotation.x = 0.15; w.rotation.z = -0.05;
+    return w;
+  }
+
+  function camera() {
+    const g = new THREE.Group();
+    const black = M(0x1b1b1f), black2 = M(0x2b2b31), grey = M(0x6a6a72), glass = M(0x1e3a5a, { roughness: 0.3 }), silver = M(0xcfcfd4, { metalness: 0.4, roughness: 0.4 });
+    g.add(mesh(new THREE.BoxGeometry(2.0, 1.25, 0.48), black, 0, 0, 0));                       // body
+    g.add(mesh(new THREE.BoxGeometry(0.55, 1.2, 0.16), black2, -0.72, -0.03, 0.3));           // grip
+    g.add(mesh(new THREE.BoxGeometry(0.9, 0.22, 0.42), black2, 0.05, 0.72, -0.01));            // top hump
+    g.add(mesh(new THREE.BoxGeometry(0.4, 0.14, 0.24), black, 0.05, 0.9, -0.01));              // hot shoe / viewfinder
+    g.add(mesh(new THREE.CylinderGeometry(0.11, 0.11, 0.06, 10), silver, -0.6, 0.66, 0));     // shutter button
+    g.add(mesh(new THREE.CylinderGeometry(0.2, 0.2, 0.1, 12), black2, 0.7, 0.66, -0.05));     // mode dial
+    const lens = mesh(new THREE.CylinderGeometry(0.46, 0.5, 0.4, 14), black2, 0.15, -0.05, 0.44); lens.rotation.x = Math.PI / 2; g.add(lens);
+    const ring = mesh(new THREE.CylinderGeometry(0.42, 0.42, 0.08, 14), grey, 0.15, -0.05, 0.68); ring.rotation.x = Math.PI / 2; g.add(ring);
+    const glassM = mesh(new THREE.CylinderGeometry(0.32, 0.32, 0.04, 14), glass, 0.15, -0.05, 0.72); glassM.rotation.x = Math.PI / 2; g.add(glassM);
+    g.add(mesh(new THREE.BoxGeometry(0.3, 0.14, 0.04), silver, -0.45, 0.42, 0.25));            // flash
+    g.add(mesh(new THREE.BoxGeometry(1.1, 0.75, 0.03), M(0x3a3f4a), 0.1, -0.1, -0.25));        // rear screen
+    g.scale.setScalar(0.72);
+    const w = new THREE.Group(); w.add(g); w.rotation.x = 0.3; w.rotation.y = -0.6; w.rotation.z = -0.1;
+    return w;
+  }
+
+  const BUILDERS = { home: bouquet, blog: statueHead, articles: guitar, projects: rocket, favorites: legos, random: clementine, photos: camera };
 
   /* mount(options): { canvas, labelHost, items:[{key,href,ext,plain}], arrange(aspect,n)->[{x,y}] , onPick(item) } */
   window.mountLowPoly = function (opt) {
@@ -114,7 +168,7 @@
       if (model.userData.viewTilt) { root.rotation.x = model.userData.viewTilt.x; root.rotation.z = model.userData.viewTilt.z; }
       scene.add(root);
       root.updateMatrixWorld(true); root.userData.labelY = new THREE.Box3().setFromObject(root).min.y - 0.35;
-      const label = document.createElement('a'); label.className = 'lp-label'; label.href = item.href;
+      const label = document.createElement('a'); label.className = 'lp-label'; label.href = '#' + (item.key === 'home' ? '' : item.key);
       label.textContent = item.label;
       label.addEventListener('click', e => { e.preventDefault(); opt.onPick(item); });
       opt.labelHost.appendChild(label);
@@ -186,5 +240,6 @@
       requestAnimationFrame(frame);
     }
     requestAnimationFrame(frame);
+    return { setCurrent(key) { nodes.forEach(n => n.label.classList.toggle('is-current', n.item.key === key)); } };
   };
 })();
