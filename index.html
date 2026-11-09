@@ -155,6 +155,7 @@ fetch(`https://www.googleapis.com/drive/v3/files?q='${DRIVE_FOLDER}'+in+parents+
 // ----- sections: the models on the right swap what shows on the left -----
 const SECTIONS = ['home', 'blog', 'articles', 'projects', 'favorites', 'random', 'photos'];
 let nav = null;
+let shownOnce = false;
 function show(id) {
   if (!SECTIONS.includes(id)) id = 'home';
   if (shownOnce) repaint(); shownOnce = true;   // first call is the initial load, which already picked a colour
