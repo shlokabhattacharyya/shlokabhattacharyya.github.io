@@ -10,8 +10,13 @@
     <script>
         // random background on every load (runs before paint so there is no flash)
         const PALETTE = ['#a6b8de', '#eaaebc', '#78b778', '#feb983', '#fff4a8', '#cfc9ff', '#d97b7d'];
-        document.documentElement.style.setProperty('--bg', PALETTE[Math.floor(Math.random() * PALETTE.length)]);
-    </script>
+        let currentBg = null;
+        function repaint() {   // a new colour every load and every time a section is opened (never the same one twice in a row)
+            let pick; do { pick = PALETTE[Math.floor(Math.random() * PALETTE.length)]; } while (pick === currentBg);
+            currentBg = pick; document.documentElement.style.setProperty('--bg', pick);
+        }
+        repaint();
+</script>
 </head>
 <body>
 <div class="page">
@@ -31,7 +36,12 @@
 
     <section>
       <h2>about me</h2>
+
       <p>hi, i'm shloka! i am an undergraduate junior at wesleyan university majoring in mathematics and computer science and minoring in physics. my general interests lie in theoretical mathematics, AI/ML, graphics, fintech, software, design, and autonomous robotics.</p>
+      
+      <p>i currently work in research labs focused on semiconductor materials, soft robotics, and reinforcement learning, and previously in astrophysical spectroscopy. on campus, i'm involved in WesEngineering, CodeWes, Game Dev Club, AI Alignment Society, The Wesleyan Argus, WESU 88.1 FM, and The Wesleyan Science Journal.</p>
+
+      <p>in the past, i developed algorithms for a prediction market startup and was an investment analyst at a VC for liberal arts colleges. now, i am working on a startup building autonomous robots for material extraction in extreme terrains.</p>
     </section>
 
     <section>
@@ -55,7 +65,7 @@
       <div class="entry"><span class="date">sept 14, 2026</span><div><a class="title" href="https://shloka444.substack.com/p/the-threat-of-superintelligence">will AI really kill us all?</a><span class="sub">what jacob coxon's resignation means for the rest of the world</span></div></div>
       <div class="entry"><span class="date">aug 5, 2026</span><div><a class="title" href="https://shloka444.substack.com/p/why-constantly-optimizing-our-productivity">why constantly optimizing our productivity is robbing us of our ability to think originally</a><span class="sub">on chatbots and agentic AI and humanoid robots and...</span></div></div>
       <div class="entry"><span class="date">june 30, 2026</span><div><a class="title" href="https://shloka444.substack.com/p/information-aggregation-and-its-failure-modes">information aggregation and its failure modes</a><span class="sub">when the crowd is only one person</span></div></div>
-      <div class="entry"><span class="date">june 24, 2026</span><div><a class="title" href="https://shloka444.substack.com/p/mechanistic-interpretability-for-ai-safety">mechanistic interpretability for AI safety</a><span class="sub">how we can "read AI's mind"</span></div></div>
+      <div class="entry"><span class="date">june 24, 2026</span><div><a class="title" href="https://shloka444.substack.com/p/mechanistic-interpretability-for-ai-safety">an introduction to mechanistic interpretability</a><span class="sub">how we can "read AI's mind"</span></div></div>
       <div class="entry"><span class="date">may 16, 2026</span><div><a class="title" href="https://shloka444.substack.com/p/do-you-have-good-taste">do you have good taste?</a><span class="sub">how our perception of quality is changing</span></div></div>
     </section>
 
@@ -147,6 +157,7 @@ const SECTIONS = ['home', 'blog', 'articles', 'projects', 'favorites', 'random',
 let nav = null;
 function show(id) {
   if (!SECTIONS.includes(id)) id = 'home';
+  if (shownOnce) repaint(); shownOnce = true;   // first call is the initial load, which already picked a colour
   SECTIONS.forEach(s => document.getElementById('v-' + s).classList.toggle('on', s === id));
   document.querySelector('.left').scrollTop = 0;
   document.title = (id === 'home' ? '' : id + ' | ') + 'shloka bhattacharyya';
