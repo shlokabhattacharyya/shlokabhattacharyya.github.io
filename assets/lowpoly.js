@@ -167,7 +167,8 @@
       root.userData = { item, spin, phase: i * 1.3, autoY: i * 1.3, userX: 0, userY: 0, flame: model.userData.flame };
       if (model.userData.viewTilt) { root.rotation.x = model.userData.viewTilt.x; root.rotation.z = model.userData.viewTilt.z; }
       scene.add(root);
-      root.updateMatrixWorld(true); root.userData.labelY = new THREE.Box3().setFromObject(root).min.y - 0.35;
+      root.updateMatrixWorld(true); const bb = new THREE.Box3().setFromObject(root);
+      root.userData.labelY = bb.min.y - 0.3; root.userData.top = bb.max.y; root.userData.bottom = bb.min.y - 0.75; // label sits in that 0.75
       const label = document.createElement('a'); label.className = 'lp-label'; label.href = '#' + (item.key === 'home' ? '' : item.key);
       label.textContent = item.label;
       label.addEventListener('click', e => { e.preventDefault(); opt.onPick(item); });
@@ -180,7 +181,16 @@
       const w = canvas.clientWidth, h = canvas.clientHeight;
       renderer.setSize(w, h, false);
       const aspect = w / h;
-      const lay = opt.arrange(aspect, nodes.length);          // {span, points}
+      const lay = opt.arrange(aspect, nodes.length);          // {axis, span, points} or {axis:'y', stack:true, gap, xs}
+      if (lay.stack) {
+        // real heights decide the spacing, so the gap between every model and the next is the same;
+        // a fixed span keeps the models at full size and lets the gap go slightly negative (neighbours sit on opposite sides, so they don't collide)
+        const heights = nodes.reduce((s, n) => s + (n.root.userData.top - n.root.userData.bottom), 0);
+        const gap = lay.span ? (lay.span - heights) / (nodes.length - 1) : lay.gap;
+        const total = lay.span || heights + gap * (nodes.length - 1);
+        lay.span = total; let cursor = total / 2;
+        lay.points = nodes.map((n, i) => { const d = n.root.userData; const y = cursor - d.top; cursor = y + d.bottom - gap; return { x: lay.xs(i, total / 2 * aspect), y }; });
+      }
       positions = lay.points;
       const half = lay.span / 2;
       if (lay.axis === 'y') { camera.top = half; camera.bottom = -half; camera.left = -half * aspect; camera.right = half * aspect; }
