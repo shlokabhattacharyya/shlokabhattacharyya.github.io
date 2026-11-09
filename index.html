@@ -123,8 +123,8 @@
 <script src="/assets/script.js"></script>
 <script>
 // ----- photos: pulled live from a public google drive folder, newest first by date taken -----
-const DRIVE_FOLDER = 'PASTE_FOLDER_ID';   // the long id at the end of the folder's URL
-const DRIVE_KEY    = 'PASTE_API_KEY';     // drive api key, restricted to shlokabhattacharyya.github.io/*
+const DRIVE_FOLDER = '1iwqxLPfx0acTE1Swoa8pQjOPz3PYN97d';   // the long id at the end of the folder's URL
+const DRIVE_KEY    = 'AIzaSyC4tEd9nYK9htHNy1jevaqKPwWOL_ESA8k';     // drive api key, restricted to shlokabhattacharyya.github.io/*
 fetch(`https://www.googleapis.com/drive/v3/files?q='${DRIVE_FOLDER}'+in+parents+and+mimeType+contains+'image/'+and+trashed=false&fields=files(id,createdTime,imageMediaMetadata(time,width,height,rotation))&pageSize=200&key=${DRIVE_KEY}`)
   .then(r => r.json())
   .then(d => {
