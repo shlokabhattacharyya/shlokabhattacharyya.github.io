@@ -6,7 +6,7 @@
 html { scroll-padding-top: env(safe-area-inset-top, 0px); }
 *, *::before, *::after { box-sizing: inherit; }
 body { margin: 0; min-height: 100%; background: var(--bg); color: var(--ink);
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 14.25px; line-height: 1.7; overflow: hidden; transition: background-color .5s; }
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 13.875px; line-height: 1.7; overflow: hidden; transition: background-color .5s; }
 a { color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }
 a:hover { text-decoration-thickness: 2px; }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
@@ -26,11 +26,11 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ink); outline-o
 .cards { display: flex; gap: 12px; flex-shrink: 0; }
 .cards img { display: block; border-radius: 8px; object-fit: cover; }
 .cards .photo { width: 132px; height: 132px; }
-.profile h1 { font-size: 15.25px; margin: 0 0 12px; line-height: 1.6; }
+.profile h1 { font-size: 14.875px; margin: 0 0 12px; line-height: 1.6; }
 .profile p { margin: 0; }
 .profile .currently { margin-top: 16px; }
 section { margin-top: 34px; }
-section h2 { font-size: 15.25px; margin: 0 0 12px; }
+section h2 { font-size: 14.875px; margin: 0 0 12px; }
 section p { margin: 0; max-width: 68ch; }
 
 .contact { display: grid; grid-template-columns: repeat(2, max-content); column-gap: 120px; }
@@ -38,12 +38,12 @@ section p { margin: 0; max-width: 68ch; }
 .contact svg { width: 12px; height: 12px; stroke: var(--ink); }
 
 /* nav model labels */
-.lp-label { position: absolute; transform: translate(-50%, 0); pointer-events: auto; font-size: 10.5px; letter-spacing: .04em; color: var(--ink); white-space: nowrap; text-decoration: none; transition: transform .15s; }
+.lp-label { position: absolute; transform: translate(-50%, 0); pointer-events: auto; font-size: 10.25px; letter-spacing: .04em; color: var(--ink); white-space: nowrap; text-decoration: none; transition: transform .15s; }
 .lp-label.is-hover, .lp-label.is-current { text-decoration: underline; text-underline-offset: 2px; }
 .lp-label.is-hover { transform: translate(-50%, 2px); }
 
 /* ---------- sections swapped in by the models ---------- */
-h1 { font-size: 15.25px; font-weight: 700; margin: 0 0 14px; }
+h1 { font-size: 14.875px; font-weight: 700; margin: 0 0 14px; }
 
 /* dated lists: blog + articles */
 .entry { display: grid; grid-template-columns: 92px 1fr; gap: 12px; padding: 9px 0; border-top: 1px solid var(--rule); }
